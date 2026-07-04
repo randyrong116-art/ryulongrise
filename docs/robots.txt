@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://USERNAME.github.io/ryulongrise/sitemap.xml
+Sitemap: https://randyrong116-art.github.io/ryulongrise/sitemap.xml
