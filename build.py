@@ -11,6 +11,7 @@
 - 每页独立 title/description/canonical/OG/JSON-LD；全站 sitemap/RSS/llms.txt
 """
 import json
+import re
 import shutil
 import sys
 from datetime import datetime, timezone, timedelta
@@ -202,6 +203,66 @@ border-radius:13px;padding:16px 18px;margin:16px 0;box-shadow:var(--shadow)}
 .comp h3{margin:0 0 4px}.comp .en{font-size:12px;color:var(--muted)}
 .comp p{font-size:14px;margin:8px 0}
 .permalink{font-size:12px;color:var(--muted);word-break:break-all}
+.dashhead{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:26px 0 6px}
+.biglogo{font-size:30px;font-weight:800;letter-spacing:.5px}
+.biglogo .ryu,.biglogo .arrow{color:var(--green)}.biglogo .arrow{font-size:22px}
+.dashhead h1{font-size:14px;color:var(--muted);font-weight:400;margin:0}
+.updated{margin-left:auto;font-size:12.5px;color:var(--muted);border:1px solid var(--line);
+padding:5px 11px;border-radius:20px;background:var(--panel)}
+.updated b{color:var(--green)}
+.sub{color:var(--muted);font-size:13px;margin:2px 0 22px;border-bottom:1px solid var(--line);padding-bottom:16px}
+.sub .warn{color:var(--orange)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+@media(max-width:840px){.grid{grid-template-columns:1fr}}
+h2.sd{margin:0 0 13px;font-size:16px}h2.sd::before{display:none}
+.col h2.sd,.sec h2.sd{margin-top:0}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex:none}
+.dot.g{background:var(--green);box-shadow:0 0 10px var(--green)}
+.dot.r{background:var(--red);box-shadow:0 0 10px var(--red)}
+.dot.b{background:var(--blue);box-shadow:0 0 10px var(--blue)}
+.dot.y{background:var(--orange);box-shadow:0 0 10px var(--orange)}
+.count{font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:1px 8px}
+.mlink{font-size:12px;font-weight:400}
+.legend{font-size:11.5px;color:var(--muted);background:var(--panel);border:1px solid var(--line);
+border-radius:9px;padding:9px 11px;margin-bottom:12px;line-height:1.7}
+.legend b{color:var(--text)}
+.row{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.mdate{font-size:11.5px;color:var(--muted)}
+.jtitle{font-weight:700;font-size:14.5px;margin:6px 0 7px}.jtitle a{color:var(--text)}
+.take{font-size:12.5px;color:var(--green);margin-top:9px;display:flex;gap:6px}
+.take::before{content:"▸"}
+.srcline{font-size:11.5px;color:var(--muted);margin-top:8px}
+.sector{font-weight:800;font-size:15px}
+.what{font-size:13px;color:#d7e2ee;margin:8px 0}
+.leaders{font-size:12.5px;background:#0c121a;border:1px solid var(--line);border-radius:8px;padding:6px 9px;margin:7px 0}
+.leaders b{color:var(--green)}
+.risk2{font-size:12px;color:var(--orange);margin-top:7px;display:flex;gap:6px}
+.risk2::before{content:"⚠"}
+.announced{font-size:11px;background:#0c121a;border:1px solid var(--line);border-radius:8px;padding:2px 8px}
+.announced b{color:var(--green)}
+.fresh{font-size:11px;font-weight:800;padding:2px 9px;border-radius:20px}
+.fresh-hot{color:#fff;background:var(--red)}.fresh-new{color:#0a0e14;background:var(--green)}
+.fresh-mid{color:#0a0e14;background:var(--orange)}.fresh-old{color:var(--muted);border:1px solid var(--line)}
+.card.hot{border-color:rgba(255,77,77,.55);box-shadow:0 0 0 1px rgba(255,77,77,.25),var(--shadow)}
+.card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);
+border-radius:13px;padding:14px 15px;margin-bottom:12px;box-shadow:var(--shadow);transition:.15s}
+.card:hover{border-color:#2c3e52;transform:translateY(-1px)}
+.brk{padding:12px 0;border-bottom:1px solid var(--line)}
+.brk:last-child{border-bottom:none}
+.brktitle{font-weight:700;font-size:13.5px;margin-top:6px}.brktitle a{color:var(--text)}
+.brkwhat{font-size:12.5px;color:#d7e2ee;margin:7px 0}
+.brkimp{font-size:12px;color:var(--green)}
+.brkstk{font-size:12px;background:#0c121a;border:1px solid var(--line);border-radius:8px;padding:6px 9px;margin-top:7px}
+.brkstk b{color:var(--green)}
+.map{margin-top:26px;background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:16px 18px}
+.map h3{margin:0 0 12px;font-size:15px}
+.chain{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12.5px}
+.node{background:#0c121a;border:1px solid var(--line);border-radius:8px;padding:6px 10px;color:var(--text)}
+.node b{color:var(--green)}.node:hover{text-decoration:none;border-color:#2c3e52}
+.sep{color:var(--muted)}
+.empty{color:var(--muted);font-size:13px;padding:20px;text-align:center;border:1px dashed var(--line);border-radius:10px}
+.catwhen.soon{background:var(--red);color:#fff}.catwhen.roll{background:var(--muted)}
+.cathead{font-size:13.5px;font-weight:700;margin:16px 0 6px;border-top:1px dashed var(--line);padding-top:13px}
 """
 
 NAV = [("index.html", "首页", 0), ("reviews/", "每日复盘", 1), ("hikes/", "涨价数据库", 1),
@@ -620,50 +681,165 @@ def about_page():
                        desc="RyuLongRise 的定位、数据收录方法论（官宣日锚定、级别标注、来源可溯）、AI 使用披露与免责声明。",
                        path=path, depth=1, body=body, jsonld=lds)
 
+CHAIN_STRIP = [("gpu", "GPU", "算力心脏", "→"), ("hbm", "HBM", "显存", "→"),
+               ("cpo", "CPO", "光互联", "→"), ("pcb", "PCB", "骨架", "+"),
+               ("ccl", "CCL", "覆铜板", "→"), ("sip", "SiP", "封装", "·"),
+               ("storage", "DRAM/NAND", "存储", "·"), ("mlcc", "MLCC", "被动", "·"),
+               ("fpc", "FPC", "软板", "·"), ("cooling", "液冷", "热管理", "")]
+
+def freshness(date_str):
+    """相对构建日的新鲜度徽章（与本地仪表盘逻辑一致）。"""
+    try:
+        a = datetime.strptime(date_str, "%Y-%m-%d")
+    except ValueError:
+        return "日期未知", "fresh-old", 9999
+    d = (datetime.strptime(TODAY, "%Y-%m-%d") - a).days
+    if d <= 0:
+        return "🔥 今日官宣", "fresh-hot", d
+    if d == 1:
+        return "🟢 昨日官宣", "fresh-new", d
+    if d <= 4:
+        return f"🟡 {d}天前官宣", "fresh-mid", d
+    return f"⚪ 已发酵 {d} 天", "fresh-old", d
+
+def cats_home_html(cz, rdate):
+    """催化提示（相对复盘日的 T-N 倒计时，与本地仪表盘一致）。"""
+    rd = datetime.strptime(rdate, "%Y-%m-%d")
+    rows = ""
+    for c in cz:
+        m = re.search(r"(\d{4})-(\d{2})-(\d{2})", c.get("date") or "")
+        cls = ""
+        if m:
+            d = (datetime(int(m[1]), int(m[2]), int(m[3])) - rd).days
+            if d > 0:
+                bdg = f"⏳ T-{d}天（{m[0]}）"
+                cls = " soon" if d <= 2 else ""
+            elif d == 0:
+                bdg = f"🔔 今日（{m[0]}）"
+                cls = " soon"
+            else:
+                bdg = f"✅ 已发生（{m[0]}）"
+        else:
+            bdg = "📅 " + (c.get("when") or c.get("date") or "")
+            cls = " roll"
+        rows += (f'<div class="cat"><span class="catwhen{cls}">{esc(bdg)}</span>'
+                 f'<span>{esc(c.get("event", ""))}</span>'
+                 + (f'<span class="catben">📈 相关方向：{esc(c["benefit"])}</span>' if c.get("benefit") else "")
+                 + (f'<span class="catnote">💡 {esc(c["note"])}</span>' if c.get("note") else "")
+                 + "</div>")
+    return rows
+
+HOME_FILTER_JS = """<script>
+(function(){var f=document.getElementById('f');if(!f)return;
+f.addEventListener('input',function(){var q=f.value.trim().toLowerCase();
+document.querySelectorAll('#hikes .card').forEach(function(c){
+c.style.display=!q||c.textContent.toLowerCase().indexOf(q)>=0?'':'none';});});})();
+</script>"""
+
 def home_page():
-    latest_j = "".join(
-        f'<div class="list-item"><h3><a href="jensen/{e["slug"]}/">{esc(e["title"])}</a></h3>'
-        f'<div class="meta" style="margin:0"><time datetime="{e["date"]}">{esc(e["date"])}</time></div></div>'
-        for e in JENSEN[:3])
-    latest_b = "".join(
-        f'<div class="list-item"><h3><a href="breakthroughs/{e["slug"]}/">{esc(e["title"])}</a></h3>'
-        f'<div class="meta" style="margin:0"><time datetime="{e["date"]}">{esc(d_disp(e))}</time>'
-        + badge(f"成熟度：{e['maturity']}", MAT_CLS.get(e["maturity"], "mt-lab"))
-        + "</div></div>"
-        for e in BREAKS[:3])
-    rv = ""
+    # 每日复盘精选（事实层）
     if REVIEWS:
-        r0 = REVIEWS[0]
-        t0 = r0.get("thermo") or {}
-        rv = ('<h2>🌡️ 最新A股复盘 <span class="stat">（<a href="reviews/">全部复盘 →</a>）</span></h2>'
-              f'<div class="list-item"><h3><a href="reviews/{r0["slug"]}/">{esc(r0["title"])}</a></h3>'
-              '<div class="meta" style="margin:0">'
-              f'<time datetime="{r0["date"]}">{esc(r0["date"])}</time>'
-              + (f'<span class="temp temp-{esc(t0["temp"])}" style="font-size:11.5px;padding:2px 10px">'
-                 f'{esc(t0["temp"])}</span>' if t0.get("temp") else "")
-              + f'</div><p class="sum">{esc(r0["summary"])}</p></div>')
+        r = REVIEWS[0]
+        ladder = r.get("ladder") or []
+        cats = r.get("catalysts") or []
+        wk = f"（{esc(r['weekday'])}）" if r.get("weekday") else ""
+        review_sec = (
+            '<section class="sec">'
+            f'<h2 class="sd"><span class="dot y"></span>📋 每日复盘精选 <span class="count">{len(ladder)} 只</span> '
+            '<span class="note">（涨+资金+逻辑+位置+龙头+人气+接力；观察池·事实层，非买入指令）</span> '
+            f'<span class="mlink"><a href="reviews/{r["slug"]}/">本日永久页 →</a> · <a href="reviews/">归档 →</a></span></h2>'
+            + thermo_html(r.get("thermo"))
+            + (f'<div class="mkt">🧭 {esc(r["market"])}<br>'
+               f'<span class="note">复盘日：{esc(r["date"])}{wk}（北京时间）</span></div>' if r.get("market") else "")
+            + ladder_html(ladder)
+            + (('<div class="cathead">📅 催化提示（相对时间）</div>' + cats_home_html(cats, r["date"]))
+               if cats else "")
+            + "</section>")
+    else:
+        review_sec = '<section class="sec"><div class="empty">暂无复盘记录（盘后定时任务会自动生成）。</div></section>'
+
+    jcards = "".join(
+        '<div class="card"><div class="row"><span class="mdate">🕒 ' + esc(e["date"])
+        + (" · " + esc(e["time_note"]) if e.get("time_note") else "（北京时间）") + "</span></div>"
+        + f'<div class="jtitle"><a href="jensen/{e["slug"]}/">{esc(e["title"])}</a></div>'
+        + f'<blockquote>“{esc(e["quote"])}”</blockquote>'
+        + (f'<div class="take">{esc(e["take"])}</div>' if e.get("take") else "")
+        + (f'<div class="leaders">📈 A股产业链相关公司：<b>{esc(e["stocks"])}</b></div>' if e.get("stocks") else "")
+        + f'<div class="srcline">来源：<a href="{esc(e["source_url"])}" target="_blank" rel="noopener">'
+          f'{esc(e.get("source_name") or "链接")} ↗</a> · <a href="jensen/{e["slug"]}/">详情 →</a></div></div>'
+        for e in JENSEN)
+
+    hcards = ""
+    for e in HIKES:
+        label, cls, d = freshness(e["date"])
+        hcards += ('<div class="card' + (" hot" if d <= 0 else "") + '">'
+                   + f'<div class="row"><span class="sector">{esc(e["sector"])}</span>'
+                     f'<span class="chg" style="margin-left:auto">{esc(e.get("change") or "")}</span></div>'
+                   + f'<div class="row" style="margin-top:7px;gap:7px"><span class="fresh {cls}">{label}</span>'
+                   + f'<span class="announced">📅 官宣 <b>{esc(d_disp(e))}</b> 北京时间</span>'
+                   + badge(e["level"], LEVEL_CLS.get(e["level"], "lv-theme")) + "</div>"
+                   + f'<div class="what">{esc(e["what"])}</div>'
+                   + (f'<div class="leaders">龙头：<b>{esc(e["leaders"])}</b></div>' if e.get("leaders") else "")
+                   + (f'<div class="risk2">{esc(e["risk"])}</div>' if e.get("risk") else "")
+                   + '<div class="srcline">'
+                   + (f'报道日 {esc(e["reported"])}（北京时间） · ' if e.get("reported") else "")
+                   + f'<a href="hikes/{e["slug"]}/">详情 →</a> · '
+                     f'<a href="{esc(e["source_url"])}" target="_blank" rel="noopener">来源 ↗</a></div></div>')
+
+    brows = "".join(
+        '<div class="brk"><div class="row"><span class="mdate">🕒 ' + esc(d_disp(e)) + "（北京时间）</span>"
+        + badge(f"成熟度：{e['maturity']}", MAT_CLS.get(e["maturity"], "mt-lab")) + "</div>"
+        + f'<div class="brktitle"><a href="breakthroughs/{e["slug"]}/">{esc(e["title"])}</a></div>'
+        + f'<div class="brkwhat">{esc(e["what"])}</div>'
+        + (f'<div class="brkimp">▸ {esc(e["impact"])}</div>' if e.get("impact") else "")
+        + (f'<div class="brkstk">📈 相关方向：<b>{esc(e["stocks"])}</b></div>' if e.get("stocks") else "")
+        + f'<div class="srcline">来源：<a href="{esc(e["source_url"])}" target="_blank" rel="noopener">'
+          f'{esc(e.get("source_name") or "链接")} ↗</a> · <a href="breakthroughs/{e["slug"]}/">详情 →</a></div></div>'
+        for e in BREAKS)
+
+    nodes = ""
+    for cid, nm, role, sep in CHAIN_STRIP:
+        nodes += f'<a class="node" href="chain/#{cid}"><b>{nm}</b> {role}</a>'
+        if sep:
+            nodes += f'<span class="sep">{sep}</span>'
+
     body = (
-        f"<h1>{esc(SITE['name'])} · {esc(SITE['tagline'])}</h1>"
-        + f'<p class="lead">{esc(SITE["description"])}</p>'
-        + f'<p class="stat">复盘 <b>{len(REVIEWS)}</b> 日 · 涨价记录 <b>{len(HIKES)}</b> 条 · '
-          f'言论 <b>{len(JENSEN)}</b> 条 · 前沿突破 <b>{len(BREAKS)}</b> 条 · 更新至 {TODAY}</p>'
-        + rv
-        + f'<h2>📈 最新涨价官宣 <span class="stat">（<a href="hikes/">进入数据库 →</a>）</span></h2>'
-        + hikes_table(HIKES[:6], "hikes/")
-        + f'<h2>🎙️ 黄仁勋最新言论 <span class="stat">（<a href="jensen/">全部时间线 →</a>）</span></h2>'
-        + latest_j
-        + f'<h2>🔬 前沿突破 <span class="stat">（<a href="breakthroughs/">全部记录 →</a>）</span></h2>'
-        + latest_b
-        + '<h2>🗺️ 产业链速查</h2>'
-        + '<p>GPU → HBM → CPO/光模块 → PCB + CCL → 先进封装 · DRAM/NAND · MLCC · FPC · 液冷 —— '
-          '十类元件的角色与涨价传导逻辑，见<a href="chain/">产业链图谱</a>。</p>')
+        '<div class="dashhead">'
+        '<div class="biglogo"><span class="ryu">Ryu</span><span class="arrow">↗</span>LongRise</div>'
+        "<h1>复盘精选 × 催化提示 × 黄仁勋雷达 × 涨价</h1>"
+        f'<div class="updated">数据更新：<b>{TODAY}</b>（北京时间）</div></div>'
+        '<div class="sub">全部日期为<b>北京时间</b> · 仅作信息梳理，<span class="warn">不构成任何投资建议</span></div>'
+        + review_sec
+        + '<div class="grid"><section class="col">'
+        + f'<h2 class="sd"><span class="dot g"></span>黄仁勋雷达 <span class="count">{len(JENSEN)} 条</span> '
+          '<span class="mlink"><a href="jensen/">归档 →</a></span></h2>'
+        + '<div class="legend">📌 每条言论已附 <b>A 股产业链相关公司</b>（公开信息整理）；'
+          "日期为<b>北京时间</b>（美国事件已换算/注明）。</div>"
+        + jcards
+        + '</section><section class="col">'
+        + f'<h2 class="sd"><span class="dot r"></span>涨价官宣雷达 <span class="count">{len(HIKES)} 个板块</span> '
+          '<span class="mlink"><a href="hikes/">数据库 →</a></span></h2>'
+        + '<div class="legend">📅 <b>官宣日</b>（北京时间）= 涨价函/调价公告官方发布日。'
+          "🔥今日 · 🟢昨日 · 🟡数日内=较新；⚪已发酵=发布已有时日。</div>"
+        + '<input class="filter" id="f" placeholder="🔍 过滤板块/材料/龙头，如：铜箔、存储、电子布…">'
+        + f'<div id="hikes">{hcards}</div>'
+        + "</section></div>"
+        + '<section class="sec">'
+        + f'<h2 class="sd"><span class="dot y"></span>🔬 全球前沿突破雷达 <span class="count">{len(BREAKS)} 条</span> '
+          '<span class="note">（实验室突破 ≠ 立即可投资，看成熟度）</span> '
+          '<span class="mlink"><a href="breakthroughs/">归档 →</a></span></h2>'
+        + brows + "</section>"
+        + '<div class="map"><h3>🗺️ AI 算力产业链速查（10 元件）'
+          '<span class="mlink"> · <a href="chain/">图谱详情 →</a></span></h3>'
+        + f'<div class="chain">{nodes}</div></div>'
+        + HOME_FILTER_JS)
     lds = [{"@context": "https://schema.org", "@type": "WebSite",
             "name": SITE["name"], "alternateName": SITE["tagline"],
             "url": f"{BASE}/", "inLanguage": "zh-CN",
             "description": SITE["description"]},
            {"@context": "https://schema.org", "@type": "Organization",
             "name": SITE["name"], "url": f"{BASE}/"}]
-    return "", shell(title=f"{SITE['name']} · {SITE['tagline']}｜涨价官宣数据库",
+    return "", shell(title=f"{SITE['name']} · 复盘精选 × 催化提示 × 黄仁勋雷达 × 涨价｜{SITE['tagline']}",
                      desc=SITE["description"], path="", depth=0, body=body, jsonld=lds)
 
 def notfound_page():
