@@ -18,56 +18,97 @@
 <meta name="twitter:card" content="summary">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"AI 硬件涨价官宣数据库","description":"AI 算力硬件供应链（GPU/HBM/存储/PCB/CCL/MLCC/光模块等）涨价官宣的结构化时间线数据库，含官宣日期、涨幅、级别与来源。","url":"https://randyrong116-art.github.io/ryulongrise/hikes/","creator":{"@type":"Organization","name":"RyuLongRise"},"distribution":[{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://randyrong116-art.github.io/ryulongrise/data.json"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://randyrong116-art.github.io/ryulongrise/"},{"@type":"ListItem","position":2,"name":"涨价数据库","item":"https://randyrong116-art.github.io/ryulongrise/hikes/"}]}</script><style>
 :root{--bg:#0a0e14;--panel:#121821;--panel2:#0e141d;--line:#1f2a38;--text:#e6edf3;
---muted:#8b9bb0;--green:#76b900;--red:#ff4d4d;--orange:#ff9f43;--blue:#4d9fff}
+--muted:#8b9bb0;--green:#76b900;--red:#ff4d4d;--orange:#ff9f43;--purple:#a974ff;
+--blue:#4d9fff;--shadow:0 6px 24px rgba(0,0,0,.35)}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);line-height:1.75;
-font-family:-apple-system,"Segoe UI","Microsoft YaHei",system-ui,sans-serif}
+body{margin:0;background:radial-gradient(1200px 600px at 80% -10%,#10202a 0,var(--bg) 60%);
+color:var(--text);line-height:1.7;font-family:-apple-system,"Segoe UI","Microsoft YaHei",system-ui,sans-serif}
 a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
-.wrap{max-width:860px;margin:0 auto;padding:0 18px 60px}
-header.top{border-bottom:1px solid var(--line);background:var(--panel2)}
-.topin{max-width:860px;margin:0 auto;padding:14px 18px;display:flex;flex-wrap:wrap;
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px 60px}
+header.top{border-bottom:1px solid var(--line)}
+.topin{max-width:1080px;margin:0 auto;padding:16px 18px;display:flex;flex-wrap:wrap;
 align-items:baseline;gap:8px 18px}
-.logo{font-size:20px;font-weight:800;color:var(--text)}
-.logo b{color:var(--green)}.logo:hover{text-decoration:none}
+.logo{font-size:24px;font-weight:800;letter-spacing:.5px;color:var(--text)}
+.logo b,.logo .ar{color:var(--green)}.logo:hover{text-decoration:none}
 nav.main{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13.5px}
 nav.main a{color:var(--muted)}nav.main a:hover{color:var(--text)}
-h1{font-size:26px;line-height:1.4;margin:28px 0 10px}
-h2{font-size:19px;margin:34px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
-h3{font-size:16px;margin:22px 0 8px}
-.lead{color:var(--muted);font-size:15px;margin:0 0 24px}
+h1{font-size:25px;line-height:1.45;margin:26px 0 10px}
+h2{display:flex;align-items:center;gap:9px;font-size:17px;margin:30px 0 12px;flex-wrap:wrap}
+h2::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--green);
+box-shadow:0 0 10px var(--green);flex:none}
+h3{font-size:15.5px;margin:20px 0 8px}
+.lead{color:var(--muted);font-size:14.5px;margin:0 0 20px}
 .crumb{font-size:12.5px;color:var(--muted);margin-top:20px}
 .meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;
-color:var(--muted);margin:6px 0 22px}
-.badge{font-size:12px;font-weight:700;padding:2px 10px;border-radius:20px;border:1px solid}
+color:var(--muted);margin:6px 0 20px}
+.sec{background:var(--panel);border:1px solid var(--line);border-radius:13px;
+padding:18px 20px;margin:18px 0;box-shadow:var(--shadow)}
+.badge{font-size:11.5px;font-weight:700;padding:2px 10px;border-radius:20px;border:1px solid;white-space:nowrap}
 .lv-super{color:var(--red);border-color:var(--red);background:rgba(255,77,77,.08)}
 .lv-strong{color:var(--orange);border-color:var(--orange);background:rgba(255,159,67,.08)}
-.lv-theme{color:#a974ff;border-color:#a974ff;background:rgba(169,116,255,.08)}
+.lv-theme{color:var(--purple);border-color:var(--purple);background:rgba(169,116,255,.08)}
 .lv-start{color:var(--green);border-color:var(--green);background:rgba(118,185,0,.08)}
 .mt-lab{color:var(--muted);border-color:var(--muted)}
 .mt-pilot{color:var(--orange);border-color:var(--orange);background:rgba(255,159,67,.08)}
 .mt-near{color:var(--green);border-color:var(--green);background:rgba(118,185,0,.08)}
+.t-high{color:var(--red);border-color:var(--red);background:rgba(255,77,77,.08)}
+.t-strong{color:var(--orange);border-color:var(--orange);background:rgba(255,159,67,.08)}
+.t-watch{color:var(--blue);border-color:var(--blue);background:rgba(77,159,255,.08)}
+.t-low{color:var(--green);border-color:var(--green);background:rgba(118,185,0,.08)}
 .chg{color:var(--red);font-weight:800;letter-spacing:1px}
-article p{margin:12px 0}
-blockquote{margin:16px 0;padding:12px 16px;border-left:3px solid var(--green);
-background:var(--panel);border-radius:0 8px 8px 0;color:#cfe0d2}
-.box{background:var(--panel);border:1px solid var(--line);border-radius:10px;
-padding:12px 16px;margin:14px 0;font-size:14px}
+article p{margin:12px 0;font-size:14.5px}
+blockquote{margin:16px 0;padding:11px 14px;border-left:3px solid var(--green);
+background:#0c121a;border-radius:0 8px 8px 0;color:#cfe0d2;font-size:14px}
+.box{background:#0c121a;border:1px solid var(--line);border-radius:10px;
+padding:11px 14px;margin:13px 0;font-size:13.5px}
 .box b{color:var(--green)}
 .risk{border-left:3px solid var(--orange)}
 .risk::before{content:"⚠ ";color:var(--orange)}
+.mkt{font-size:13.5px;color:#cfe0d2;background:#0c121a;border:1px solid var(--line);
+border-left:3px solid var(--blue);border-radius:0 8px 8px 0;padding:11px 14px;margin:13px 0}
 .src{font-size:13px;color:var(--muted);border-top:1px dashed var(--line);
-margin-top:26px;padding-top:14px}
+margin-top:24px;padding-top:13px}
 .disc{font-size:12px;color:var(--muted)}
-table{width:100%;border-collapse:collapse;font-size:14px;margin:16px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:14px 0}
 th{text-align:left;color:var(--muted);font-size:12.5px;font-weight:600;
 border-bottom:1px solid var(--line);padding:8px 10px 8px 0;white-space:nowrap}
 td{border-bottom:1px solid var(--line);padding:10px 10px 10px 0;vertical-align:top}
 td.nowrap,th.nowrap{white-space:nowrap}
-.list-item{padding:16px 0;border-bottom:1px solid var(--line)}
-.list-item h3{margin:0 0 6px;font-size:16px}
-.list-item .sum{font-size:13.5px;color:var(--muted);margin:6px 0 0}
+.list-item{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);
+border-radius:13px;padding:14px 16px;margin:12px 0;box-shadow:var(--shadow);transition:.15s}
+.list-item:hover{border-color:#2c3e52;transform:translateY(-1px)}
+.list-item h3{margin:0 0 6px;font-size:15.5px}
+.list-item .sum{font-size:13px;color:var(--muted);margin:6px 0 0}
+.pick{display:flex;flex-wrap:wrap;align-items:center;gap:9px;padding:12px 0;
+border-bottom:1px solid var(--line);font-size:13px}
+.pick:last-child{border-bottom:none}
+.pstock{font-weight:800;font-size:14px;min-width:130px}
+.pd{font-size:11px;font-weight:800;padding:2px 9px;border-radius:20px;color:#0a0e14;
+background:var(--green);white-space:nowrap}
+.pd.weak{background:var(--muted)}
+.pline{flex-basis:100%;font-size:12.5px}
+.pmoney{color:var(--green);font-weight:600}
+.ppos{color:var(--orange)}
+.pwhy{color:var(--green);border-left:2px solid var(--green);padding-left:8px}
+.psent,.plogic{color:#d7e2ee}
+.thermo{background:#0c121a;border:1px solid var(--line);border-radius:11px;padding:13px 15px;margin:13px 0}
+.thermo-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:9px;font-size:13.5px}
+.temp{font-size:13px;font-weight:800;padding:3px 12px;border-radius:8px;background:var(--green);color:#0a0e14}
+.temp-冰点{background:var(--blue)}.temp-回暖,.temp-发酵{background:var(--green)}
+.temp-偏热{background:var(--orange)}.temp-过热,.temp-退潮{background:var(--red);color:#fff}
+.tmetrics{display:flex;flex-wrap:wrap;gap:8px;font-size:12px}
+.tm{background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:3px 9px}
+.tm b{color:var(--green)}
+.note{font-size:11.5px;color:var(--muted);font-weight:400}
+.cat{display:flex;flex-wrap:wrap;align-items:center;gap:9px;padding:10px 0;
+border-bottom:1px solid var(--line);font-size:13px}
+.cat:last-child{border-bottom:none}
+.catwhen{font-size:11.5px;font-weight:800;color:#0a0e14;background:var(--orange);
+border-radius:6px;padding:3px 10px;white-space:nowrap}
+.catben{font-size:12.5px;color:var(--green);flex-basis:100%}
+.catnote{font-size:12.5px;color:var(--orange);flex-basis:100%}
 .pn{display:flex;justify-content:space-between;gap:16px;font-size:13.5px;
-margin-top:30px;padding-top:14px;border-top:1px solid var(--line)}
+margin-top:26px;padding-top:14px;border-top:1px solid var(--line)}
 footer.bottom{border-top:1px solid var(--line);margin-top:50px;padding:20px 0 0;
 font-size:12.5px;color:var(--muted)}
 footer.bottom p{margin:6px 0}
@@ -78,8 +119,8 @@ border-radius:9px;padding:9px 12px;font-size:14px;margin:10px 0;outline:none}
 @media(max-width:700px){.grid2{grid-template-columns:1fr}}
 .stat{font-size:13px;color:var(--muted)}
 .stat b{color:var(--green);font-size:16px}
-.comp{background:var(--panel);border:1px solid var(--line);border-radius:12px;
-padding:16px 18px;margin:16px 0}
+.comp{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);
+border-radius:13px;padding:16px 18px;margin:16px 0;box-shadow:var(--shadow)}
 .comp h3{margin:0 0 4px}.comp .en{font-size:12px;color:var(--muted)}
 .comp p{font-size:14px;margin:8px 0}
 .permalink{font-size:12px;color:var(--muted);word-break:break-all}
@@ -87,8 +128,8 @@ padding:16px 18px;margin:16px 0}
 </head>
 <body>
 <header class="top"><div class="topin">
-<a class="logo" href="../index.html"><b>Ryu</b>↗LongRise</a>
-<nav class="main"><a href="../index.html">首页</a><a href="../hikes/">涨价数据库</a><a href="../jensen/">黄仁勋言论</a><a href="../breakthroughs/">前沿突破</a><a href="../chain/">产业链图谱</a><a href="../about/">关于</a></nav>
+<a class="logo" href="../index.html"><b>Ryu</b><span class="ar">↗</span>LongRise</a>
+<nav class="main"><a href="../index.html">首页</a><a href="../reviews/">每日复盘</a><a href="../hikes/">涨价数据库</a><a href="../jensen/">黄仁勋言论</a><a href="../breakthroughs/">前沿突破</a><a href="../chain/">产业链图谱</a><a href="../about/">关于</a></nav>
 </div></header>
 <div class="wrap">
 <nav class="crumb"><a href="../index.html">首页</a> › 涨价数据库</nav><h1>AI 硬件涨价官宣数据库</h1><p class="lead">收录 AI 算力硬件供应链各环节的<b>官方涨价函 / 调价公告 / 合约价发布</b>，以官宣日期为准（区别于媒体报道日），每条附来源链接。覆盖 GPU、HBM、存储、PCB、CCL、MLCC、光模块等十类元件。</p><p class="stat">共 <b>6</b> 条记录 · 时间跨度 2026-06-01 ~ 2026-06-16 · 每个交易日盘前更新</p><input class="filter" id="f" placeholder="🔍 过滤板块/关键词，如：铜箔、存储、MLCC…"><table id="hiketable"><thead><tr><th class="nowrap">官宣日期</th><th class="nowrap">板块</th><th class="nowrap">级别</th><th>记录</th></tr></thead><tbody><tr><td class="nowrap"><time datetime="2026-06-16">2026-06-16</time></td><td class="nowrap">NOR Flash / SLC NAND</td><td class="nowrap"><span class="badge lv-strong">强势</span></td><td><a href="2026-06-16-nor-flash-slc-nand-contract-price/">NOR Flash / SLC NAND 上半年合约价涨超 100%，下半年预估再涨 60-75%</a></td></tr><tr><td class="nowrap"><time datetime="2026-06-16">2026-06-16</time></td><td class="nowrap">CCL覆铜板/电子布</td><td class="nowrap"><span class="badge lv-super">超级周期</span></td><td><a href="2026-06-16-ccl-fifth-round-hike/">覆铜板 CCL 年内第五轮调价 +15%：FR-4 累计涨超 50% 破历史高点</a></td></tr><tr><td class="nowrap"><time datetime="2026-06-14">2026-06-14</time></td><td class="nowrap">PCB印制电路板</td><td class="nowrap"><span class="badge lv-super">超级周期</span></td><td><a href="2026-06-14-pcb-june-price-hike/">PCB 六月提价落实：价格突破 2021 年历史高点，AI 多层板缺货持续</a></td></tr><tr><td class="nowrap"><time datetime="2026-06-09">2026-06-09</time></td><td class="nowrap">MLCC多层陶瓷电容器</td><td class="nowrap"><span class="badge lv-super">超级周期</span></td><td><a href="2026-06-09-mlcc-price-surge/">MLCC 现货价急涨 20%+：交期延至 16-24 周，AI 机柜价值量 +182%</a></td></tr><tr><td class="nowrap"><time datetime="2026-06-01">2026年6月</time></td><td class="nowrap">HBM高带宽内存</td><td class="nowrap"><span class="badge lv-strong">强势</span></td><td><a href="2026-06-hbm4e-price-up-50/">HBM4E 单价 560 美元较 HBM3E 涨超 50%，12 层 48GB 进入量产交付</a></td></tr><tr><td class="nowrap"><time datetime="2026-06-01">2026年6月</time></td><td class="nowrap">DRAM/NAND通用存储</td><td class="nowrap"><span class="badge lv-super">超级周期</span></td><td><a href="2026-06-dram-nand-contract-price-surge/">存储超级周期：Q2 DRAM 合约价环比 +58-63%、NAND +70-75%，DDR5 半年涨超 340%</a></td></tr></tbody></table><div class="box disc">字段说明：<b>官宣日</b>=厂商涨价函/公告/合约价的官方发布日；<b>级别</b>为本站对该环节涨价所处阶段的标注（启动→强势→超级周期），属方法论标签，详见<a href="../about/">关于页</a>。</div><script>

@@ -34,6 +34,7 @@ REQUIRED = {
     "hikes": ["slug", "title", "date", "sector", "level", "what", "summary", "source_url"],
     "jensen": ["slug", "title", "date", "quote", "summary", "source_url"],
     "breakthroughs": ["slug", "title", "date", "maturity", "what", "summary", "source_url"],
+    "reviews": ["slug", "title", "date", "summary", "market"],
 }
 
 def load_entries(kind: str):
@@ -53,6 +54,7 @@ CHAIN = load_json(DATA / "chain.json")
 HIKES = load_entries("hikes")
 JENSEN = load_entries("jensen")
 BREAKS = load_entries("breakthroughs")
+REVIEWS = load_entries("reviews")
 BASE = SITE["base_url"].rstrip("/")
 TODAY = datetime.now(CST).strftime("%Y-%m-%d")
 
@@ -81,6 +83,7 @@ def rfc822(date_str: str) -> str:
 LEVEL_CLS = {"超级周期": "lv-super", "过热": "lv-super", "强势": "lv-strong",
              "题材": "lv-theme", "启动": "lv-start"}
 MAT_CLS = {"实验室": "mt-lab", "中试": "mt-pilot", "产业化临近": "mt-near"}
+TAG_CLS = {"高位": "t-high", "强势": "t-strong", "关注": "t-watch", "低位启动": "t-low"}
 
 def badge(text, cls):
     return f'<span class="badge {cls}">{esc(text)}</span>'
@@ -93,56 +96,97 @@ FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' "
 
 CSS = """
 :root{--bg:#0a0e14;--panel:#121821;--panel2:#0e141d;--line:#1f2a38;--text:#e6edf3;
---muted:#8b9bb0;--green:#76b900;--red:#ff4d4d;--orange:#ff9f43;--blue:#4d9fff}
+--muted:#8b9bb0;--green:#76b900;--red:#ff4d4d;--orange:#ff9f43;--purple:#a974ff;
+--blue:#4d9fff;--shadow:0 6px 24px rgba(0,0,0,.35)}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);line-height:1.75;
-font-family:-apple-system,"Segoe UI","Microsoft YaHei",system-ui,sans-serif}
+body{margin:0;background:radial-gradient(1200px 600px at 80% -10%,#10202a 0,var(--bg) 60%);
+color:var(--text);line-height:1.7;font-family:-apple-system,"Segoe UI","Microsoft YaHei",system-ui,sans-serif}
 a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
-.wrap{max-width:860px;margin:0 auto;padding:0 18px 60px}
-header.top{border-bottom:1px solid var(--line);background:var(--panel2)}
-.topin{max-width:860px;margin:0 auto;padding:14px 18px;display:flex;flex-wrap:wrap;
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px 60px}
+header.top{border-bottom:1px solid var(--line)}
+.topin{max-width:1080px;margin:0 auto;padding:16px 18px;display:flex;flex-wrap:wrap;
 align-items:baseline;gap:8px 18px}
-.logo{font-size:20px;font-weight:800;color:var(--text)}
-.logo b{color:var(--green)}.logo:hover{text-decoration:none}
+.logo{font-size:24px;font-weight:800;letter-spacing:.5px;color:var(--text)}
+.logo b,.logo .ar{color:var(--green)}.logo:hover{text-decoration:none}
 nav.main{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13.5px}
 nav.main a{color:var(--muted)}nav.main a:hover{color:var(--text)}
-h1{font-size:26px;line-height:1.4;margin:28px 0 10px}
-h2{font-size:19px;margin:34px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
-h3{font-size:16px;margin:22px 0 8px}
-.lead{color:var(--muted);font-size:15px;margin:0 0 24px}
+h1{font-size:25px;line-height:1.45;margin:26px 0 10px}
+h2{display:flex;align-items:center;gap:9px;font-size:17px;margin:30px 0 12px;flex-wrap:wrap}
+h2::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--green);
+box-shadow:0 0 10px var(--green);flex:none}
+h3{font-size:15.5px;margin:20px 0 8px}
+.lead{color:var(--muted);font-size:14.5px;margin:0 0 20px}
 .crumb{font-size:12.5px;color:var(--muted);margin-top:20px}
 .meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;
-color:var(--muted);margin:6px 0 22px}
-.badge{font-size:12px;font-weight:700;padding:2px 10px;border-radius:20px;border:1px solid}
+color:var(--muted);margin:6px 0 20px}
+.sec{background:var(--panel);border:1px solid var(--line);border-radius:13px;
+padding:18px 20px;margin:18px 0;box-shadow:var(--shadow)}
+.badge{font-size:11.5px;font-weight:700;padding:2px 10px;border-radius:20px;border:1px solid;white-space:nowrap}
 .lv-super{color:var(--red);border-color:var(--red);background:rgba(255,77,77,.08)}
 .lv-strong{color:var(--orange);border-color:var(--orange);background:rgba(255,159,67,.08)}
-.lv-theme{color:#a974ff;border-color:#a974ff;background:rgba(169,116,255,.08)}
+.lv-theme{color:var(--purple);border-color:var(--purple);background:rgba(169,116,255,.08)}
 .lv-start{color:var(--green);border-color:var(--green);background:rgba(118,185,0,.08)}
 .mt-lab{color:var(--muted);border-color:var(--muted)}
 .mt-pilot{color:var(--orange);border-color:var(--orange);background:rgba(255,159,67,.08)}
 .mt-near{color:var(--green);border-color:var(--green);background:rgba(118,185,0,.08)}
+.t-high{color:var(--red);border-color:var(--red);background:rgba(255,77,77,.08)}
+.t-strong{color:var(--orange);border-color:var(--orange);background:rgba(255,159,67,.08)}
+.t-watch{color:var(--blue);border-color:var(--blue);background:rgba(77,159,255,.08)}
+.t-low{color:var(--green);border-color:var(--green);background:rgba(118,185,0,.08)}
 .chg{color:var(--red);font-weight:800;letter-spacing:1px}
-article p{margin:12px 0}
-blockquote{margin:16px 0;padding:12px 16px;border-left:3px solid var(--green);
-background:var(--panel);border-radius:0 8px 8px 0;color:#cfe0d2}
-.box{background:var(--panel);border:1px solid var(--line);border-radius:10px;
-padding:12px 16px;margin:14px 0;font-size:14px}
+article p{margin:12px 0;font-size:14.5px}
+blockquote{margin:16px 0;padding:11px 14px;border-left:3px solid var(--green);
+background:#0c121a;border-radius:0 8px 8px 0;color:#cfe0d2;font-size:14px}
+.box{background:#0c121a;border:1px solid var(--line);border-radius:10px;
+padding:11px 14px;margin:13px 0;font-size:13.5px}
 .box b{color:var(--green)}
 .risk{border-left:3px solid var(--orange)}
 .risk::before{content:"⚠ ";color:var(--orange)}
+.mkt{font-size:13.5px;color:#cfe0d2;background:#0c121a;border:1px solid var(--line);
+border-left:3px solid var(--blue);border-radius:0 8px 8px 0;padding:11px 14px;margin:13px 0}
 .src{font-size:13px;color:var(--muted);border-top:1px dashed var(--line);
-margin-top:26px;padding-top:14px}
+margin-top:24px;padding-top:13px}
 .disc{font-size:12px;color:var(--muted)}
-table{width:100%;border-collapse:collapse;font-size:14px;margin:16px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:14px 0}
 th{text-align:left;color:var(--muted);font-size:12.5px;font-weight:600;
 border-bottom:1px solid var(--line);padding:8px 10px 8px 0;white-space:nowrap}
 td{border-bottom:1px solid var(--line);padding:10px 10px 10px 0;vertical-align:top}
 td.nowrap,th.nowrap{white-space:nowrap}
-.list-item{padding:16px 0;border-bottom:1px solid var(--line)}
-.list-item h3{margin:0 0 6px;font-size:16px}
-.list-item .sum{font-size:13.5px;color:var(--muted);margin:6px 0 0}
+.list-item{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);
+border-radius:13px;padding:14px 16px;margin:12px 0;box-shadow:var(--shadow);transition:.15s}
+.list-item:hover{border-color:#2c3e52;transform:translateY(-1px)}
+.list-item h3{margin:0 0 6px;font-size:15.5px}
+.list-item .sum{font-size:13px;color:var(--muted);margin:6px 0 0}
+.pick{display:flex;flex-wrap:wrap;align-items:center;gap:9px;padding:12px 0;
+border-bottom:1px solid var(--line);font-size:13px}
+.pick:last-child{border-bottom:none}
+.pstock{font-weight:800;font-size:14px;min-width:130px}
+.pd{font-size:11px;font-weight:800;padding:2px 9px;border-radius:20px;color:#0a0e14;
+background:var(--green);white-space:nowrap}
+.pd.weak{background:var(--muted)}
+.pline{flex-basis:100%;font-size:12.5px}
+.pmoney{color:var(--green);font-weight:600}
+.ppos{color:var(--orange)}
+.pwhy{color:var(--green);border-left:2px solid var(--green);padding-left:8px}
+.psent,.plogic{color:#d7e2ee}
+.thermo{background:#0c121a;border:1px solid var(--line);border-radius:11px;padding:13px 15px;margin:13px 0}
+.thermo-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:9px;font-size:13.5px}
+.temp{font-size:13px;font-weight:800;padding:3px 12px;border-radius:8px;background:var(--green);color:#0a0e14}
+.temp-冰点{background:var(--blue)}.temp-回暖,.temp-发酵{background:var(--green)}
+.temp-偏热{background:var(--orange)}.temp-过热,.temp-退潮{background:var(--red);color:#fff}
+.tmetrics{display:flex;flex-wrap:wrap;gap:8px;font-size:12px}
+.tm{background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:3px 9px}
+.tm b{color:var(--green)}
+.note{font-size:11.5px;color:var(--muted);font-weight:400}
+.cat{display:flex;flex-wrap:wrap;align-items:center;gap:9px;padding:10px 0;
+border-bottom:1px solid var(--line);font-size:13px}
+.cat:last-child{border-bottom:none}
+.catwhen{font-size:11.5px;font-weight:800;color:#0a0e14;background:var(--orange);
+border-radius:6px;padding:3px 10px;white-space:nowrap}
+.catben{font-size:12.5px;color:var(--green);flex-basis:100%}
+.catnote{font-size:12.5px;color:var(--orange);flex-basis:100%}
 .pn{display:flex;justify-content:space-between;gap:16px;font-size:13.5px;
-margin-top:30px;padding-top:14px;border-top:1px solid var(--line)}
+margin-top:26px;padding-top:14px;border-top:1px solid var(--line)}
 footer.bottom{border-top:1px solid var(--line);margin-top:50px;padding:20px 0 0;
 font-size:12.5px;color:var(--muted)}
 footer.bottom p{margin:6px 0}
@@ -153,15 +197,16 @@ border-radius:9px;padding:9px 12px;font-size:14px;margin:10px 0;outline:none}
 @media(max-width:700px){.grid2{grid-template-columns:1fr}}
 .stat{font-size:13px;color:var(--muted)}
 .stat b{color:var(--green);font-size:16px}
-.comp{background:var(--panel);border:1px solid var(--line);border-radius:12px;
-padding:16px 18px;margin:16px 0}
+.comp{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);
+border-radius:13px;padding:16px 18px;margin:16px 0;box-shadow:var(--shadow)}
 .comp h3{margin:0 0 4px}.comp .en{font-size:12px;color:var(--muted)}
 .comp p{font-size:14px;margin:8px 0}
 .permalink{font-size:12px;color:var(--muted);word-break:break-all}
 """
 
-NAV = [("index.html", "首页", 0), ("hikes/", "涨价数据库", 1), ("jensen/", "黄仁勋言论", 1),
-       ("breakthroughs/", "前沿突破", 1), ("chain/", "产业链图谱", 1), ("about/", "关于", 1)]
+NAV = [("index.html", "首页", 0), ("reviews/", "每日复盘", 1), ("hikes/", "涨价数据库", 1),
+       ("jensen/", "黄仁勋言论", 1), ("breakthroughs/", "前沿突破", 1),
+       ("chain/", "产业链图谱", 1), ("about/", "关于", 1)]
 
 def shell(*, title, desc, path, depth, body, jsonld=None, og_type="website",
           published=None, modified=None):
@@ -197,7 +242,7 @@ def shell(*, title, desc, path, depth, body, jsonld=None, og_type="website",
 </head>
 <body>
 <header class="top"><div class="topin">
-<a class="logo" href="{rel}index.html"><b>Ryu</b>↗LongRise</a>
+<a class="logo" href="{rel}index.html"><b>Ryu</b><span class="ar">↗</span>LongRise</a>
 <nav class="main">{nav}</nav>
 </div></header>
 <div class="wrap">
@@ -282,7 +327,7 @@ def hike_detail(e, i):
                       f'<a href="../../chain/#{c["id"]}">{esc(c["name"])}</a></p>')
     body = (
         crumb(2, '<a href="../">涨价数据库</a>', esc(e["sector"]))
-        + f"<article><h1>{esc(e['title'])}</h1>"
+        + f'<article class="sec"><h1>{esc(e["title"])}</h1>'
         + '<div class="meta">'
         + f'<time datetime="{e["date"]}">📅 官宣 {esc(d_disp(e))}</time>'
         + badge(e["level"], LEVEL_CLS.get(e["level"], "lv-theme"))
@@ -306,7 +351,7 @@ def jensen_detail(e, i):
     path = f"jensen/{e['slug']}/"
     body = (
         crumb(2, '<a href="../">黄仁勋言论</a>', esc(e["date"]))
-        + f"<article><h1>{esc(e['title'])}</h1>"
+        + f'<article class="sec"><h1>{esc(e["title"])}</h1>'
         + '<div class="meta">'
         + f'<time datetime="{e["date"]}">🕒 {esc(e["date"])}</time>'
         + (f'<span>{esc(e["time_note"])}</span>' if e.get("time_note") else "")
@@ -327,7 +372,7 @@ def break_detail(e, i):
     path = f"breakthroughs/{e['slug']}/"
     body = (
         crumb(2, '<a href="../">前沿突破</a>', esc(d_disp(e)))
-        + f"<article><h1>{esc(e['title'])}</h1>"
+        + f'<article class="sec"><h1>{esc(e["title"])}</h1>'
         + '<div class="meta">'
         + f'<time datetime="{e["date"]}">🕒 {esc(d_disp(e))}</time>'
         + badge(f"成熟度：{e['maturity']}", MAT_CLS.get(e["maturity"], "mt-lab"))
@@ -343,6 +388,104 @@ def break_detail(e, i):
     return path, shell(title=f"{e['title']} | {SITE['name']}", desc=e["summary"],
                        path=path, depth=2, body=body, jsonld=lds,
                        og_type="article", published=e["date"])
+
+# ---------------------------------------------------------------- 每日复盘
+
+def thermo_html(t):
+    if not t:
+        return ""
+    chips = []
+    if t.get("limitUp"):
+        chips.append(f'<span class="tm">涨停 <b>{esc(t["limitUp"])}</b> / 跌停 {esc(t.get("limitDown", ""))}</span>')
+    if t.get("maxBoard"):
+        chips.append(f'<span class="tm">最高 <b>{esc(t["maxBoard"])}</b></span>')
+    if t.get("promote"):
+        chips.append(f'<span class="tm">连板 {esc(t.get("lianban", ""))} · 晋级 <b>{esc(t["promote"])}</b></span>')
+    if t.get("fengban"):
+        chips.append(f'<span class="tm">炸板 {esc(t.get("zhaban", ""))} · 封板 {esc(t["fengban"])}</span>')
+    if t.get("effect"):
+        chips.append(f'<span class="tm">{esc(t["effect"])}</span>')
+    return ('<div class="thermo"><div class="thermo-top"><b>🌡️ 市场情绪温度计</b>'
+            + (f'<span class="temp temp-{esc(t["temp"])}">{esc(t["temp"])}</span>' if t.get("temp") else "")
+            + "</div>"
+            + (f'<div class="note" style="margin-bottom:8px">{esc(t["stage"])}</div>' if t.get("stage") else "")
+            + f'<div class="tmetrics">{"".join(chips)}</div></div>')
+
+def ladder_html(items):
+    rows = ""
+    for p in items:
+        d = p.get("dragon", "")
+        strong = d and ("龙头" in d) and ("非龙头" not in d) and ("跟风" not in d)
+        rows += ('<div class="pick"><span class="pstock">' + esc(p["stock"]) + "</span>"
+                 + (f'<span class="pd{"" if strong else " weak"}">🐲 {esc(d)}</span>' if d else "")
+                 + (f'<span class="badge {TAG_CLS.get(p["tag"], "t-watch")}">{esc(p["tag"])}</span>'
+                    if p.get("tag") else "")
+                 + (f'<span class="pline pmoney">💰 {esc(p["money"])}</span>' if p.get("money") else "")
+                 + (f'<span class="pline psent">🔥 {esc(p["sentiment"])}</span>' if p.get("sentiment") else "")
+                 + (f'<span class="pline plogic">🧠 {esc(p["logic"])}</span>' if p.get("logic") else "")
+                 + (f'<span class="pline ppos">📍 {esc(p["pos"])}</span>' if p.get("pos") else "")
+                 + (f'<span class="pline pwhy">🐲 {esc(p["why"])}</span>' if p.get("why") else "")
+                 + "</div>")
+    return rows
+
+def cats_html(cz):
+    rows = ""
+    for c in cz:
+        when = c.get("date") or c.get("when") or ""
+        extra = f'（{esc(c["when"])}）' if c.get("when") and c.get("date") else ""
+        rows += ('<div class="cat"><span class="catwhen">📅 ' + esc(when) + extra + "</span>"
+                 + f'<span>{esc(c.get("event", ""))}</span>'
+                 + (f'<span class="catben">📈 相关方向：{esc(c["benefit"])}</span>' if c.get("benefit") else "")
+                 + (f'<span class="catnote">💡 {esc(c["note"])}</span>' if c.get("note") else "")
+                 + "</div>")
+    return rows
+
+def review_detail(e, i):
+    path = f"reviews/{e['slug']}/"
+    ladder = e.get("ladder") or []
+    wk = f"（{esc(e['weekday'])}）" if e.get("weekday") else ""
+    body = (
+        crumb(2, '<a href="../">每日复盘</a>', esc(e["date"]))
+        + f'<article class="sec"><h1>{esc(e["title"])}</h1>'
+        + '<div class="meta">'
+        + f'<time datetime="{e["date"]}">📅 {esc(e["date"])}{wk} 收盘复盘</time>'
+        + "<span>北京时间 · 事实性观察记录</span></div>"
+        + thermo_html(e.get("thermo"))
+        + (f'<div class="mkt">🧭 {esc(e["market"])}</div>' if e.get("market") else "")
+        + (f'<h2>📋 涨停梯队与人气标的 <span class="note">（{len(ladder)} 只 · 观察记录，非任何操作建议）</span></h2>'
+           + ladder_html(ladder) if ladder else "")
+        + ("<h2>📅 催化日历</h2>" + cats_html(e["catalysts"]) if e.get("catalysts") else "")
+        + '<div class="box disc">本页为公开行情数据与财经媒体报道的事实性汇总（观察池记录），'
+          "不含任何买卖点、仓位或操作建议，亦不构成投资建议；数据以交易所与信息披露原文为准。</div>"
+        + f'<div class="src"><div class="permalink">本页永久链接：{esc(BASE)}/{esc(path)}</div></div>'
+        + prevnext(REVIEWS, i, "reviews", 2)
+        + "</article>")
+    lds = [article_ld(e, path),
+           breadcrumb_ld([("", "首页"), ("reviews/", "每日复盘"), (path, e["title"])])]
+    return path, shell(title=f"{e['title']} | {SITE['name']}", desc=e["summary"],
+                       path=path, depth=2, body=body, jsonld=lds,
+                       og_type="article", published=e["date"])
+
+def reviews_index():
+    path = "reviews/"
+    cards = "".join(
+        f'<div class="list-item"><h3><a href="{e["slug"]}/">{esc(e["title"])}</a></h3>'
+        f'<div class="meta" style="margin:0"><time datetime="{e["date"]}">{esc(e["date"])}</time>'
+        + (f'<span class="temp temp-{esc(e["thermo"]["temp"])}" style="font-size:11.5px;padding:2px 10px">'
+           f'{esc(e["thermo"]["temp"])}</span>'
+           if e.get("thermo", {}).get("temp") else "")
+        + f'</div><p class="sum">{esc(e["summary"])}</p></div>'
+        for e in REVIEWS)
+    body = (crumb(1, "每日复盘")
+            + "<h1>A 股每日复盘（事实层）</h1>"
+            + '<p class="lead">每个交易日收盘后的复盘记录：市场情绪温度计（涨停/跌停/连板/封板率数据）、'
+              "大盘与资金面综述、涨停梯队与人气标的、未来催化日历。全部为公开行情与媒体报道的事实性整理，"
+              "<b>不含任何买卖点或操作建议</b>。</p>"
+            + f'<p class="stat">共 <b>{len(REVIEWS)}</b> 个交易日 · 收盘后自动更新</p>' + cards)
+    lds = [breadcrumb_ld([("", "首页"), (path, "每日复盘")])]
+    return path, shell(title=f"A股每日复盘：情绪温度计与涨停梯队记录 | {SITE['name']}",
+                       desc="A股每日收盘复盘的事实性记录：情绪温度计（涨停/连板/封板率）、大盘资金面综述、涨停梯队与催化日历，每个交易日收盘后自动更新。",
+                       path=path, depth=1, body=body, jsonld=lds)
 
 # ---------------------------------------------------------------- 列表页
 
@@ -488,11 +631,23 @@ def home_page():
         + badge(f"成熟度：{e['maturity']}", MAT_CLS.get(e["maturity"], "mt-lab"))
         + "</div></div>"
         for e in BREAKS[:3])
+    rv = ""
+    if REVIEWS:
+        r0 = REVIEWS[0]
+        t0 = r0.get("thermo") or {}
+        rv = ('<h2>🌡️ 最新A股复盘 <span class="stat">（<a href="reviews/">全部复盘 →</a>）</span></h2>'
+              f'<div class="list-item"><h3><a href="reviews/{r0["slug"]}/">{esc(r0["title"])}</a></h3>'
+              '<div class="meta" style="margin:0">'
+              f'<time datetime="{r0["date"]}">{esc(r0["date"])}</time>'
+              + (f'<span class="temp temp-{esc(t0["temp"])}" style="font-size:11.5px;padding:2px 10px">'
+                 f'{esc(t0["temp"])}</span>' if t0.get("temp") else "")
+              + f'</div><p class="sum">{esc(r0["summary"])}</p></div>')
     body = (
         f"<h1>{esc(SITE['name'])} · {esc(SITE['tagline'])}</h1>"
         + f'<p class="lead">{esc(SITE["description"])}</p>'
-        + f'<p class="stat">涨价记录 <b>{len(HIKES)}</b> 条 · 言论 <b>{len(JENSEN)}</b> 条 · '
-          f'前沿突破 <b>{len(BREAKS)}</b> 条 · 更新至 {TODAY}</p>'
+        + f'<p class="stat">复盘 <b>{len(REVIEWS)}</b> 日 · 涨价记录 <b>{len(HIKES)}</b> 条 · '
+          f'言论 <b>{len(JENSEN)}</b> 条 · 前沿突破 <b>{len(BREAKS)}</b> 条 · 更新至 {TODAY}</p>'
+        + rv
         + f'<h2>📈 最新涨价官宣 <span class="stat">（<a href="hikes/">进入数据库 →</a>）</span></h2>'
         + hikes_table(HIKES[:6], "hikes/")
         + f'<h2>🎙️ 黄仁勋最新言论 <span class="stat">（<a href="jensen/">全部时间线 →</a>）</span></h2>'
@@ -520,10 +675,12 @@ def notfound_page():
 # ---------------------------------------------------------------- 站点级文件
 
 def all_pages_for_sitemap():
-    pages = [("", TODAY), ("hikes/", HIKES[0]["date"] if HIKES else TODAY),
+    pages = [("", TODAY), ("reviews/", REVIEWS[0]["date"] if REVIEWS else TODAY),
+             ("hikes/", HIKES[0]["date"] if HIKES else TODAY),
              ("jensen/", JENSEN[0]["date"] if JENSEN else TODAY),
              ("breakthroughs/", BREAKS[0]["date"] if BREAKS else TODAY),
              ("chain/", TODAY), ("about/", TODAY)]
+    pages += [(f"reviews/{e['slug']}/", e["date"]) for e in REVIEWS]
     pages += [(f"hikes/{e['slug']}/", e["date"]) for e in HIKES]
     pages += [(f"jensen/{e['slug']}/", e["date"]) for e in JENSEN]
     pages += [(f"breakthroughs/{e['slug']}/", e["date"]) for e in BREAKS]
@@ -540,7 +697,8 @@ def sitemap_xml():
 def rss_xml():
     feed = ([("涨价官宣", "hikes", e) for e in HIKES]
             + [("黄仁勋言论", "jensen", e) for e in JENSEN]
-            + [("前沿突破", "breakthroughs", e) for e in BREAKS])
+            + [("前沿突破", "breakthroughs", e) for e in BREAKS]
+            + [("每日复盘", "reviews", e) for e in REVIEWS])
     feed.sort(key=lambda t: t[2]["date"], reverse=True)
     items = "".join(
         f"<item><title>[{tag}] {esc(e['title'])}</title>"
@@ -572,6 +730,8 @@ def llms_txt():
     lines += [f"- [{e['title']}]({BASE}/jensen/{e['slug']}/): {e['summary']}" for e in JENSEN]
     lines += ["", "## 前沿突破", ""]
     lines += [f"- [{e['title']}]({BASE}/breakthroughs/{e['slug']}/): {e['summary']}" for e in BREAKS]
+    lines += ["", "## A股每日复盘（事实层，无操作建议）", ""]
+    lines += [f"- [{e['title']}]({BASE}/reviews/{e['slug']}/): {e['summary']}" for e in REVIEWS]
     lines += ["", "## 专题", "",
               f"- [产业链图谱]({BASE}/chain/): AI 服务器十类核心元件的角色、涨价传导逻辑与相关公司",
               f"- [关于与方法论]({BASE}/about/): 收录规则、官宣日/报道日定义、级别与成熟度标注", ""]
@@ -581,7 +741,7 @@ def data_json():
     return json.dumps({
         "site": {k: SITE[k] for k in ("name", "tagline", "description")},
         "generated": TODAY, "base_url": BASE,
-        "hikes": HIKES, "jensen": JENSEN, "breakthroughs": BREAKS,
+        "hikes": HIKES, "jensen": JENSEN, "breakthroughs": BREAKS, "reviews": REVIEWS,
     }, ensure_ascii=False, indent=1)
 
 # ---------------------------------------------------------------- 主流程
@@ -619,6 +779,9 @@ def main():
         pages.append(jensen_detail(e, i))
     for i, e in enumerate(BREAKS):
         pages.append(break_detail(e, i))
+    pages.append(reviews_index())
+    for i, e in enumerate(REVIEWS):
+        pages.append(review_detail(e, i))
 
     for path, html in pages:
         write(path, html)
@@ -634,7 +797,7 @@ def main():
 
     n_pages = len(pages)
     print(f"[build] 完成：{n_pages} 个页面 + sitemap/rss/robots/llms.txt/data.json → {OUT}")
-    print(f"[build] 记录数：涨价 {len(HIKES)} · 言论 {len(JENSEN)} · 突破 {len(BREAKS)}")
+    print(f"[build] 记录数：复盘 {len(REVIEWS)} · 涨价 {len(HIKES)} · 言论 {len(JENSEN)} · 突破 {len(BREAKS)}")
 
 if __name__ == "__main__":
     main()

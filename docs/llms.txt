@@ -31,6 +31,10 @@
 - [光子芯片突破：单芯片集成生成/操控/读取光信息（谷电子学），开辟高速低能耗算路](https://randyrong116-art.github.io/ryulongrise/breakthroughs/2026-06-01-valleytronics-photonic-chip/): 2026年6月：Monash大学开发出谷电子学（Valleytronics）微型芯片，可在单器件内生成、操控并读取光信息，实现更低能耗的光子信息处理，论文发表于Nature旗下期刊。
 - [台积电 CoWoS-R 封装集成片上直接液冷：3.4 kW 冷却功率中试验证](https://randyrong116-art.github.io/ryulongrise/breakthroughs/2026-06-01-tsmc-cowos-r-liquid-cooling/): 2026年6月：台积电将直接硅基液冷（IMC-Si）集成到CoWoS-R先进封装，以40°C水、10 LPM流速为逻辑芯片提供3.4 kW冷却功率，为A16工艺节点设计。
 
+## A股每日复盘（事实层，无操作建议）
+
+- [A股复盘 2026-07-03：机器人新主线放量引爆，74只涨停，成交3.18万亿缩量](https://randyrong116-art.github.io/ryulongrise/reviews/2026-07-03/): 2026年7月3日（周五）A股复盘：沪指+0.37%、深成指+0.64%、创业板指+0.07%，74只涨停/7只跌停，成交额3.18万亿元较前日缩量2681亿；宇树科技IPO注册获批+优必选新品双催化引爆人形机器人板块，黄金、电网设备强势，半导体材料/光模块资金外流调整。
+
 ## 专题
 
 - [产业链图谱](https://randyrong116-art.github.io/ryulongrise/chain/): AI 服务器十类核心元件的角色、涨价传导逻辑与相关公司
