@@ -1,0 +1,95 @@
+{
+  "intro": "一台 AI 服务器/算力机柜由十类核心元件构成。AI 基建放量时，涨价通常沿产业链自上而下传导：先是核心芯片与存储，再到互联、基板与被动元件。本页是各元件的角色速查、涨价传导逻辑与相关上市公司整理（公开信息，非投资建议）。",
+  "components": [
+    {
+      "id": "gpu",
+      "name": "GPU / AI 加速芯片",
+      "en": "GPU / AI Accelerator",
+      "role": "算力心脏。承担大模型训练与推理的核心计算，单机柜价值量占比最高，是整条产业链需求的总源头。",
+      "why_hike": "旗舰平台（如英伟达 Vera Rubin）迭代出货节奏决定整条供应链的景气度；供给受先进制程与先进封装产能约束。",
+      "companies": "寒武纪(688256)·海光信息(688041)·龙芯中科(688047)·中科曙光(603019)",
+      "related_hikes": []
+    },
+    {
+      "id": "hbm",
+      "name": "HBM 高带宽内存",
+      "en": "High Bandwidth Memory",
+      "role": "GPU 的专属显存，通过先进封装与 GPU 合封，带宽决定大模型训练效率，是 AI 芯片最紧缺的配套元件。",
+      "why_hike": "代际切换（HBM3E→HBM4E）带动单价跳涨；HBM 投片挤占通用 DRAM 产能，间接推高整个存储市场价格。",
+      "companies": "澜起科技(688008)·北京君正(300223)",
+      "related_hikes": ["2026-06-hbm4e-price-up-50"]
+    },
+    {
+      "id": "storage",
+      "name": "DRAM / NAND 通用存储",
+      "en": "DRAM / NAND Memory",
+      "role": "服务器内存与数据盘。AI 服务器单机内存容量数倍于通用服务器，推理集群带动企业级 SSD 需求激增。",
+      "why_hike": "HBM 挤占 DRAM 产能 + AI 服务器高配需求，供需双向收紧；合约价按季度跳涨是超级周期的标志信号。",
+      "companies": "兆易创新(603986)·江波龙(301308)·佰维存储(688525)·普冉股份(688766)",
+      "related_hikes": ["2026-06-dram-nand-contract-price-surge", "2026-06-16-nor-flash-slc-nand-contract-price"]
+    },
+    {
+      "id": "cpo",
+      "name": "CPO / 光模块",
+      "en": "Co-Packaged Optics / Optical Modules",
+      "role": "机柜间与机柜内的光互联，决定集群规模化的通信带宽；CPO 将光引擎与交换芯片合封，是下一代互联形态。",
+      "why_hike": "旗舰平台原生集成 CPO（如 200Gb CPO 交换机）后，光器件需求从可选变为标配，量价齐升。",
+      "companies": "中际旭创(300308)·新易盛(300502)·天孚通信(300394)·光迅科技(002281)",
+      "related_hikes": []
+    },
+    {
+      "id": "pcb",
+      "name": "PCB 印制电路板",
+      "en": "Printed Circuit Board",
+      "role": "整机骨架。AI 服务器用高多层、高密度板，层数与材料等级远超通用服务器，单机价值量成倍提升。",
+      "why_hike": "AI 机架 PCB 价值量增幅在所有材料中居首（摩根士丹利 Rubin 拆解 +233%）；高端多层板产能扩张慢于需求。",
+      "companies": "沪电股份(002463)·胜宏科技(300476)·深南电路(002916)·超声电子(000823)",
+      "related_hikes": ["2026-06-14-pcb-june-price-hike"]
+    },
+    {
+      "id": "ccl",
+      "name": "CCL 覆铜板 / 电子布",
+      "en": "Copper Clad Laminate",
+      "role": "PCB 的直接上游核心材料，占 PCB 成本约三成；高速高频等级 CCL 是 AI 板卡的必需材料。",
+      "why_hike": "铜价高位 + 上游电子布/高速树脂供给瓶颈，成本与供给双重驱动，涨价沿 CCL→PCB 向下传导。",
+      "companies": "生益科技(600183)·南亚新材(688519)·华正新材(603185)",
+      "related_hikes": ["2026-06-16-ccl-fifth-round-hike"]
+    },
+    {
+      "id": "mlcc",
+      "name": "MLCC 被动元件",
+      "en": "Multilayer Ceramic Capacitor",
+      "role": "电源管理与信号滤波的基础元件，单台 AI 服务器用量数十万颗，机柜功率密度越高用量越大。",
+      "why_hike": "AI 机柜单机用量跳增（GB300→Rubin +30%）叠加高端品交期拉长，现货市场对供需变化最敏感、弹性最大。",
+      "companies": "风华高科(000636)·三环集团(300408)·顺络电子(002138)",
+      "related_hikes": ["2026-06-09-mlcc-price-surge"]
+    },
+    {
+      "id": "sip",
+      "name": "SiP / 先进封装",
+      "en": "Advanced Packaging",
+      "role": "GPU 与 HBM 的合封环节（CoWoS 等），是先进算力芯片的产能瓶颈所在，也是液冷等新技术的集成平台。",
+      "why_hike": "CoWoS 产能长期供不应求；封装与热管理融合（片上液冷）推升单位价值量。",
+      "companies": "长电科技(600584)·通富微电(002156)·华天科技(002185)·晶方科技(603005)",
+      "related_hikes": []
+    },
+    {
+      "id": "fpc",
+      "name": "FPC 软板",
+      "en": "Flexible PCB",
+      "role": "机柜内高密度连接与信号传输，随服务器内部结构复杂化用量提升。",
+      "why_hike": "跟随整机放量的二阶受益环节，弹性小于 PCB/CCL，但需求方向一致。",
+      "companies": "东山精密(002384)·鹏鼎控股(002938)",
+      "related_hikes": []
+    },
+    {
+      "id": "cooling",
+      "name": "液冷 / 热管理",
+      "en": "Liquid Cooling / Thermal",
+      "role": "机柜功率密度突破风冷极限后，液冷从可选变为必选；芯片级直冷是前沿方向。",
+      "why_hike": "单机柜功率从数十 kW 走向数百 kW，液冷渗透率快速提升；片上液冷（台积电 IMC-Si 等）打开长期空间。",
+      "companies": "英维克(002837)·申菱环境(301018)·佳力图(603278)·精研科技(300709)",
+      "related_hikes": []
+    }
+  ]
+}

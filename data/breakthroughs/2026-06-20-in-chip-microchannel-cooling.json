@@ -1,0 +1,12 @@
+{
+  "slug": "2026-06-20-in-chip-microchannel-cooling",
+  "title": "芯片内嵌微通道液冷极限突破：2000 W/cm² 热流密度下芯片温度低于 100°C",
+  "date": "2026-06-20",
+  "maturity": "实验室",
+  "what": "韩国联合研究团队（金成镇+李益镇教授）在硅芯片内部嵌入比头发丝更细的液冷微通道，在2000 W/cm²极端热流密度条件下仍将芯片温度维持在100°C以下，远超当前H100/B200实际功耗密度（约500-1000 W/cm²量级）。论文发表于《Energy Conversion and Management》。",
+  "impact": "确立芯片内直冷热管理新上限，为下一代AI加速器散热提供理论路径。实验室突破≠立即可投资，距产业化仍需材料兼容性、可靠性和量产工艺验证。受益方向：数据中心液冷设备及芯片级热管理。",
+  "stocks": "英维克(002837)·申菱环境(301018)·佳力图(603278)·精研科技(300709)",
+  "summary": "2026年6月20日：韩国研究团队在硅芯片内部嵌入液冷微通道，在2000 W/cm²极端热流密度下将芯片温度维持在100°C以下，论文发表于《Energy Conversion and Management》。",
+  "source_name": "TechXplore / Energy Conversion and Management",
+  "source_url": "https://techxplore.com/news/2026-06-liquid-cooling-technology-semiconductor-chips.html"
+}

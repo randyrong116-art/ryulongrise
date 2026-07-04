@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全球前沿突破雷达：AI 算力硬件技术进展 | RyuLongRise</title>
+<meta name="description" content="AI 算力硬件相关的全球前沿技术突破时间线，标注成熟度（实验室/中试/产业化临近），覆盖芯片、封装、散热、光子计算等方向。">
+<link rel="canonical" href="https://USERNAME.github.io/ryulongrise/breakthroughs/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0e14'/%3E%3Cpath d='M8 24 L24 8 M14 8 h10 v10' stroke='%2376b900' stroke-width='3.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="alternate" type="application/rss+xml" title="RyuLongRise RSS" href="https://USERNAME.github.io/ryulongrise/rss.xml">
+<meta name="theme-color" content="#0a0e14">
+<meta property="og:site_name" content="RyuLongRise">
+<meta property="og:title" content="全球前沿突破雷达：AI 算力硬件技术进展 | RyuLongRise">
+<meta property="og:description" content="AI 算力硬件相关的全球前沿技术突破时间线，标注成熟度（实验室/中试/产业化临近），覆盖芯片、封装、散热、光子计算等方向。">
+<meta property="og:url" content="https://USERNAME.github.io/ryulongrise/breakthroughs/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://USERNAME.github.io/ryulongrise/"},{"@type":"ListItem","position":2,"name":"全球前沿突破雷达","item":"https://USERNAME.github.io/ryulongrise/breakthroughs/"}]}</script><style>
+:root{--bg:#0a0e14;--panel:#121821;--panel2:#0e141d;--line:#1f2a38;--text:#e6edf3;
+--muted:#8b9bb0;--green:#76b900;--red:#ff4d4d;--orange:#ff9f43;--blue:#4d9fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);line-height:1.75;
+font-family:-apple-system,"Segoe UI","Microsoft YaHei",system-ui,sans-serif}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px 60px}
+header.top{border-bottom:1px solid var(--line);background:var(--panel2)}
+.topin{max-width:860px;margin:0 auto;padding:14px 18px;display:flex;flex-wrap:wrap;
+align-items:baseline;gap:8px 18px}
+.logo{font-size:20px;font-weight:800;color:var(--text)}
+.logo b{color:var(--green)}.logo:hover{text-decoration:none}
+nav.main{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13.5px}
+nav.main a{color:var(--muted)}nav.main a:hover{color:var(--text)}
+h1{font-size:26px;line-height:1.4;margin:28px 0 10px}
+h2{font-size:19px;margin:34px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+h3{font-size:16px;margin:22px 0 8px}
+.lead{color:var(--muted);font-size:15px;margin:0 0 24px}
+.crumb{font-size:12.5px;color:var(--muted);margin-top:20px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;
+color:var(--muted);margin:6px 0 22px}
+.badge{font-size:12px;font-weight:700;padding:2px 10px;border-radius:20px;border:1px solid}
+.lv-super{color:var(--red);border-color:var(--red);background:rgba(255,77,77,.08)}
+.lv-strong{color:var(--orange);border-color:var(--orange);background:rgba(255,159,67,.08)}
+.lv-theme{color:#a974ff;border-color:#a974ff;background:rgba(169,116,255,.08)}
+.lv-start{color:var(--green);border-color:var(--green);background:rgba(118,185,0,.08)}
+.mt-lab{color:var(--muted);border-color:var(--muted)}
+.mt-pilot{color:var(--orange);border-color:var(--orange);background:rgba(255,159,67,.08)}
+.mt-near{color:var(--green);border-color:var(--green);background:rgba(118,185,0,.08)}
+.chg{color:var(--red);font-weight:800;letter-spacing:1px}
+article p{margin:12px 0}
+blockquote{margin:16px 0;padding:12px 16px;border-left:3px solid var(--green);
+background:var(--panel);border-radius:0 8px 8px 0;color:#cfe0d2}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+padding:12px 16px;margin:14px 0;font-size:14px}
+.box b{color:var(--green)}
+.risk{border-left:3px solid var(--orange)}
+.risk::before{content:"⚠ ";color:var(--orange)}
+.src{font-size:13px;color:var(--muted);border-top:1px dashed var(--line);
+margin-top:26px;padding-top:14px}
+.disc{font-size:12px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:16px 0}
+th{text-align:left;color:var(--muted);font-size:12.5px;font-weight:600;
+border-bottom:1px solid var(--line);padding:8px 10px 8px 0;white-space:nowrap}
+td{border-bottom:1px solid var(--line);padding:10px 10px 10px 0;vertical-align:top}
+td.nowrap,th.nowrap{white-space:nowrap}
+.list-item{padding:16px 0;border-bottom:1px solid var(--line)}
+.list-item h3{margin:0 0 6px;font-size:16px}
+.list-item .sum{font-size:13.5px;color:var(--muted);margin:6px 0 0}
+.pn{display:flex;justify-content:space-between;gap:16px;font-size:13.5px;
+margin-top:30px;padding-top:14px;border-top:1px solid var(--line)}
+footer.bottom{border-top:1px solid var(--line);margin-top:50px;padding:20px 0 0;
+font-size:12.5px;color:var(--muted)}
+footer.bottom p{margin:6px 0}
+.filter{width:100%;background:var(--panel);border:1px solid var(--line);color:var(--text);
+border-radius:9px;padding:9px 12px;font-size:14px;margin:10px 0;outline:none}
+.filter:focus{border-color:var(--green)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.grid2{grid-template-columns:1fr}}
+.stat{font-size:13px;color:var(--muted)}
+.stat b{color:var(--green);font-size:16px}
+.comp{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+padding:16px 18px;margin:16px 0}
+.comp h3{margin:0 0 4px}.comp .en{font-size:12px;color:var(--muted)}
+.comp p{font-size:14px;margin:8px 0}
+.permalink{font-size:12px;color:var(--muted);word-break:break-all}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin">
+<a class="logo" href="../index.html"><b>Ryu</b>↗LongRise</a>
+<nav class="main"><a href="../index.html">首页</a><a href="../hikes/">涨价数据库</a><a href="../jensen/">黄仁勋言论</a><a href="../breakthroughs/">前沿突破</a><a href="../chain/">产业链图谱</a><a href="../about/">关于</a></nav>
+</div></header>
+<div class="wrap">
+<nav class="crumb"><a href="../index.html">首页</a> › 全球前沿突破雷达</nav><h1>全球前沿突破雷达</h1><p class='lead'>与 AI 算力硬件相关的全球技术突破：芯片、封装、散热、光子计算、推理加速等，标注成熟度（实验室 → 中试 → 产业化临近）。实验室突破 ≠ 立即可投资。</p><p class="stat">共 <b>5</b> 条</p><div class="list-item"><h3><a href="2026-06-27-deepseek-dspark-inference/">DeepSeek + 北京大学开源 DSpark 推理加速框架：生成速度提升 60-85% 无需增加硬件</a></h3><div class="meta" style="margin:0"><time datetime="2026-06-27">2026-06-27</time><span class="badge mt-near">成熟度：产业化临近</span></div><p class="sum">2026年6月27日：DeepSeek联合北京大学开源DSpark推理加速框架，不增加硬件即可将大模型生成速度提升60-85%，针对MoE架构深度优化，并适配国产芯片生态。</p></div><div class="list-item"><h3><a href="2026-06-20-in-chip-microchannel-cooling/">芯片内嵌微通道液冷极限突破：2000 W/cm² 热流密度下芯片温度低于 100°C</a></h3><div class="meta" style="margin:0"><time datetime="2026-06-20">2026-06-20</time><span class="badge mt-lab">成熟度：实验室</span></div><p class="sum">2026年6月20日：韩国研究团队在硅芯片内部嵌入液冷微通道，在2000 W/cm²极端热流密度下将芯片温度维持在100°C以下，论文发表于《Energy Conversion and Management》。</p></div><div class="list-item"><h3><a href="2026-06-hbm4e-samples-delivery/">SK 海力士/三星 12 层 48GB HBM4E 样品全球交付，单价较 HBM3E 涨超 50%</a></h3><div class="meta" style="margin:0"><time datetime="2026-06-01">2026年6月</time><span class="badge mt-near">成熟度：产业化临近</span></div><p class="sum">2026年5-6月：SK海力士交付首批12层48GB HBM4E样品（市占约58%），三星同步完成认证交付；HBM4E单价约560美元，较HBM3E涨超50%。</p></div><div class="list-item"><h3><a href="2026-06-01-valleytronics-photonic-chip/">光子芯片突破：单芯片集成生成/操控/读取光信息（谷电子学），开辟高速低能耗算路</a></h3><div class="meta" style="margin:0"><time datetime="2026-06-01">2026-06-01</time><span class="badge mt-lab">成熟度：实验室</span></div><p class="sum">2026年6月：Monash大学开发出谷电子学（Valleytronics）微型芯片，可在单器件内生成、操控并读取光信息，实现更低能耗的光子信息处理，论文发表于Nature旗下期刊。</p></div><div class="list-item"><h3><a href="2026-06-01-tsmc-cowos-r-liquid-cooling/">台积电 CoWoS-R 封装集成片上直接液冷：3.4 kW 冷却功率中试验证</a></h3><div class="meta" style="margin:0"><time datetime="2026-06-01">2026-06-01</time><span class="badge mt-pilot">成熟度：中试</span></div><p class="sum">2026年6月：台积电将直接硅基液冷（IMC-Si）集成到CoWoS-R先进封装，以40°C水、10 LPM流速为逻辑芯片提供3.4 kW冷却功率，为A16工艺节点设计。</p></div>
+<footer class="bottom">
+<p><b>RyuLongRise</b> · AI 硬件供应链涨价追踪 · 数据更新至 2026-07-04（北京时间）</p>
+<p>本站全部内容为公开信息的结构化整理（每条均附来源链接），仅供信息参考与研究，
+<b>不构成任何投资建议或证券投资咨询</b>。市场有风险，决策需独立判断。</p>
+<p><a href="../about/">关于本站与方法论</a> · <a href="https://USERNAME.github.io/ryulongrise/rss.xml">RSS 订阅</a> ·
+<a href="https://USERNAME.github.io/ryulongrise/data.json">数据下载(JSON)</a> · <a href="https://USERNAME.github.io/ryulongrise/llms.txt">llms.txt</a></p>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "slug": "2026-06-01-tsmc-cowos-r-liquid-cooling",
+  "title": "台积电 CoWoS-R 封装集成片上直接液冷：3.4 kW 冷却功率中试验证",
+  "date": "2026-06-01",
+  "maturity": "中试",
+  "what": "台积电成功将直接硅基液冷（IMC-Si）集成到3.3X CoWoS-R先进封装中，以40°C水、10 LPM流速，可为逻辑芯片提供3.4 kW冷却功率，实现2.5 W/mm²均匀热通量，为A16工艺节点量身打造。",
+  "impact": "台积电最先进封装平台引入液冷，标志先进封装与热管理融合趋势清晰化，产业化进程中。国内CoWoS承接能力有限，需跟踪国内封装厂订单落地。",
+  "stocks": "长电科技(600584)·通富微电(002156)·华天科技(002185)·晶方科技(603005)",
+  "summary": "2026年6月：台积电将直接硅基液冷（IMC-Si）集成到CoWoS-R先进封装，以40°C水、10 LPM流速为逻辑芯片提供3.4 kW冷却功率，为A16工艺节点设计。",
+  "source_name": "Semiwiki",
+  "source_url": "https://semiwiki.com/semiconductor-manufacturers/362017-breaking-the-thermal-wall-tsmc-nvidia-thermal-wall/"
+}
