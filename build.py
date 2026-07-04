@@ -628,6 +628,9 @@ def main():
     (OUT / "llms.txt").write_text(llms_txt(), encoding="utf-8")
     (OUT / "data.json").write_text(data_json(), encoding="utf-8")
     (OUT / ".nojekyll").write_text("", encoding="utf-8")
+    if SITE.get("indexnow_key"):
+        k = SITE["indexnow_key"]
+        (OUT / f"{k}.txt").write_text(k, encoding="utf-8")
 
     n_pages = len(pages)
     print(f"[build] 完成：{n_pages} 个页面 + sitemap/rss/robots/llms.txt/data.json → {OUT}")
