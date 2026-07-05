@@ -8,7 +8,7 @@
       "role": "算力心脏。承担大模型训练与推理的核心计算，单机柜价值量占比最高，是整条产业链需求的总源头。",
       "why_hike": "旗舰平台（如英伟达 Vera Rubin）迭代出货节奏决定整条供应链的景气度；供给受先进制程与先进封装产能约束。",
       "companies": "寒武纪(688256)·海光信息(688041)·龙芯中科(688047)·中科曙光(603019)",
-      "related_hikes": []
+      "related_hikes": ["2026-06-24-tsmc-advanced-node-price-hike", "2026-04-16-umc-foundry-mature-node-price-hike"]
     },
     {
       "id": "hbm",
@@ -53,7 +53,7 @@
       "role": "PCB 的直接上游核心材料，占 PCB 成本约三成；高速高频等级 CCL 是 AI 板卡的必需材料。",
       "why_hike": "铜价高位 + 上游电子布/高速树脂供给瓶颈，成本与供给双重驱动，涨价沿 CCL→PCB 向下传导。",
       "companies": "生益科技(600183)·南亚新材(688519)·华正新材(603185)",
-      "related_hikes": ["2026-06-16-ccl-fifth-round-hike"]
+      "related_hikes": ["2026-06-16-ccl-fifth-round-hike", "2026-07-02-electronic-cloth-monthly-price-hike"]
     },
     {
       "id": "mlcc",
