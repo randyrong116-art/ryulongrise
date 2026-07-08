@@ -10,6 +10,7 @@
 
 - [电子布年内五轮涨价，一季度均价同比涨116.9%破历史高点](https://randyrong116-art.github.io/ryulongrise/hikes/2026-07-02-electronic-cloth-monthly-price-hike/): 2026年电子布价格延续每月一调，年内已五轮涨价，7628规格累计涨超70%，龙头宏和科技一季度均价同比涨116.9%，突破2021年历史高点。
 - [存储芯片7月涨价加速，特气靶材同步跟涨超30%](https://randyrong116-art.github.io/ryulongrise/hikes/2026-07-storage-specialty-gas-sputtering-target-hike/): 2026年7月存储全产业链涨价提速：HBM3E/HBM4涨15%-30%，DRAM/NAND涨8%-22%，上游六氟化钨特气涨30%-40%，高纯钨钽靶材及AI硅片涨10%-25%。
+- [士兰微等功率半导体厂商集体涨价，AI服务器高功耗成主因](https://randyrong116-art.github.io/ryulongrise/hikes/2026-07-01-power-semiconductor-price-hike/): 国内功率半导体厂商士兰微、扬杰科技、芯联集成等自7月起集体涨价10%-25%，核心驱动是AI服务器功耗是传统服务器的3-5倍，带动电源管理芯片与功率器件需求激增、产能满载。
 - [高端AI PCB板材7月涨价提速，HVLP铜箔涨超28%](https://randyrong116-art.github.io/ryulongrise/hikes/2026-07-01-pcb-hvlp-copper-foil-july-hike/): 2026年7月高端AI PCB板材(M8/M9)累计涨12%-22%，超薄HVLP高频铜箔涨15%-28%，电子玻纤布涨12%-20%，AI服务器材料成本全线共振上行。
 - [MLCC龙头国巨全线调价，AI车用现货年内涨超40%](https://randyrong116-art.github.io/ryulongrise/hikes/2026-07-01-mlcc-yageo-across-the-board-hike/): 被动元件巨头国巨7月1日宣布全系列产品统一调价，覆盖约50%营收；AI/车用高容值MLCC现货价年内已涨10%-40%，交货周期延长至16-24周。
 - [台积电7nm及以下先进制程全线涨价5%-10%，覆盖75%晶圆营收](https://randyrong116-art.github.io/ryulongrise/hikes/2026-06-24-tsmc-advanced-node-price-hike/): 2026年6月24日消息：台积电对7nm及以下先进制程全线涨价5%-10%，覆盖公司约75%晶圆营收来源，为AI资本开支超级周期下代工端提价的最新信号。
@@ -26,6 +27,7 @@
 - [黄仁勋：每个 Token 都是利润单位，英伟达 FY26 营收 2160 亿美元同比 +65%](https://randyrong116-art.github.io/ryulongrise/jensen/2026-06-24-token-monetization-fy26-revenue/): 2026年6月24日英伟达年度股东大会：黄仁勋称token是可货币化的智能单元，AI变现问题已有答案；英伟达FY2026全年营收2160亿美元（+65%），数据中心业务1940亿美元（+68%）。
 - [黄仁勋：本轮 AI 基建周期长达数十年，可比电网/高速公路/互联网](https://randyrong116-art.github.io/ryulongrise/jensen/2026-06-24-ai-infra-decades-cycle/): 2026年6月24日英伟达年度股东大会：黄仁勋称本轮AI基础设施建设可比电网、高速公路与互联网，是60年一遇的行业重置，建设周期以数十年计；所有主要云厂商都在基于Vera Rubin建设。
 - [黄仁勋 AP 专访：呼吁拥抱 AI 关闭技术鸿沟，保持对华开放才能赢得 AI 竞赛](https://randyrong116-art.github.io/ryulongrise/jensen/2026-06-21-ap-interview-open-competition/): 2026年6月21日美联社专访：黄仁勋呼吁拥抱AI以关闭技术鸿沟，称美国要赢得AI竞赛必须保持全球化开放姿态，关税和脱钩是错误方向。
+- [黄仁勋警告存储芯片短缺将持续数年，英伟达与SK海力士签多年期合作](https://randyrong116-art.github.io/ryulongrise/jensen/2026-06-07-memory-shortage-years-sk-hynix/): 2026年6月7日黄仁勋在首尔与SK集团高管晚宴上表示，AI芯片供应链从晶圆到封装再到硅光子学全环节供不应求，存储芯片短缺将持续数年；同期英伟达与SK海力士签订多年期HBM技术合作协议。
 - [黄仁勋 Computex：Vera Rubin 架构全面量产，发布全球首款 200Gb CPO 光以太网交换机](https://randyrong116-art.github.io/ryulongrise/jensen/2026-06-01-vera-rubin-cpo-switch/): 2026年6月1日台北Computex GTC：黄仁勋宣布Vera Rubin架构全面量产，供应链规模是Grace Blackwell的两倍，并发布全球首款200Gb CPO光学以太网交换机。
 - [黄仁勋宣告智能体 AI 时代来临：Token 是利润单位，物理 AI 的 ChatGPT 时刻已至](https://randyrong116-art.github.io/ryulongrise/jensen/2026-06-01-agentic-ai-token-gdp/): 2026年6月1日台北Computex GTC：黄仁勋宣告代理式AI时代到来，称token是利润单位、AI是GDP生成器，物理AI的ChatGPT时刻已至，AI正从数字世界走向物理世界。
 
@@ -35,6 +37,7 @@
 - [华为发布"韬定律"V2论文，逻辑折叠使密度提升55%](https://randyrong116-art.github.io/ryulongrise/breakthroughs/2026-07-03-huawei-tau-law-v2-logic-folding/): 华为7月3日发布'韬定律'V2版论文，公开麒麟2026芯片实测数据，逻辑折叠设计使晶体管密度提升55%、能效提升41%，为国产成熟制程绕开EUV瓶颈提供工程验证。
 - [英伟达拟今年Q4量产CPO，台积电光引擎达3.2Tbps](https://randyrong116-art.github.io/ryulongrise/breakthroughs/2026-07-nvidia-cpo-tsmc-coupe-mass-production/): 英伟达计划2026年第四季度启动CPO量产，台积电COUPE二代光引擎3.2Tbps产品完成测试，CPO技术从验证加速迈向商用部署。
 - [玻璃基板全球提速，三星突破TGV深宽比10:1](https://randyrong116-art.github.io/ryulongrise/breakthroughs/2026-07-glass-substrate-global-race/): 三星电机实现TGV深宽比10:1突破，SKC/Absolics美国工厂启动量产，英特尔、台积电同步加速玻璃基板产业化布局。
+- [多氟多G5级电子级氢氟酸批量供货台积电、三星等头部晶圆厂](https://randyrong116-art.github.io/ryulongrise/breakthroughs/2026-07-01-duofuduo-electronic-hydrofluoric-acid/): 多氟多7月1日公告，其G5级电子级氢氟酸已实现稳定批量供应台积电、三星、华虹、长鑫等头部晶圆厂，验证国产高纯电子化学品良率跨过国际大厂认证门槛，消息发布当日氟化工板块集体涨停。
 - [DeepSeek + 北京大学开源 DSpark 推理加速框架：生成速度提升 60-85% 无需增加硬件](https://randyrong116-art.github.io/ryulongrise/breakthroughs/2026-06-27-deepseek-dspark-inference/): 2026年6月27日：DeepSeek联合北京大学开源DSpark推理加速框架，不增加硬件即可将大模型生成速度提升60-85%，针对MoE架构深度优化，并适配国产芯片生态。
 - [英伟达Vera Rubin全面转向金刚石复合散热，单芯片功耗2300W](https://randyrong116-art.github.io/ryulongrise/breakthroughs/2026-06-26-nvidia-vera-rubin-diamond-copper-cooling/): 英伟达确认Vera Rubin GPU全面采用金刚石铜复合材料散热，单芯片功耗达2300W，金刚石导热率是铜的5倍，国内超算中心已试点部署相关材料。
 - [芯片内嵌微通道液冷极限突破：2000 W/cm² 热流密度下芯片温度低于 100°C](https://randyrong116-art.github.io/ryulongrise/breakthroughs/2026-06-20-in-chip-microchannel-cooling/): 2026年6月20日：韩国研究团队在硅芯片内部嵌入液冷微通道，在2000 W/cm²极端热流密度下将芯片温度维持在100°C以下，论文发表于《Energy Conversion and Management》。
@@ -45,6 +48,7 @@
 
 ## A股每日复盘（事实层，无操作建议）
 
+- [A股复盘 2026-07-08：浪潮信息业绩预增引爆算力租赁全线涨停](https://randyrong116-art.github.io/ryulongrise/reviews/2026-07-08/): 2026年7月8日（周三）A股复盘：沪指跌0.49%、深成指跌1.87%、创业板指跌1.70%，三大指数连续第三日收跌；成交额约2.54万亿元，全市场1592只上涨、3763只下跌。浪潮信息因半年报预告净利润同比+226%~288%一字涨停，带动云计算/算力租赁产业链集体涨停；机器人、锂矿板块集体重挫，CPO/光模块方向出现企稳反弹。
 - [A股复盘 2026-07-07：沪指失守4000点，硅片先进封装逆势涨停](https://randyrong116-art.github.io/ryulongrise/reviews/2026-07-07/): 2026年7月7日（周二）A股复盘：沪指-1.26%报3990.24点、深成指-1.24%、创业板指-0.94%，三大指数连续第二日收跌，沪指盘中失守4000点；成交额约2.58万亿元，较前日缩量约5099亿元，跌停45只反超涨停34只。半导体硅片/先进封装板块逆势走强，有研硅20%涨停；创新药、有色金属等前期强势方向集体回落。
 - [A股复盘 2026-07-06：情绪退潮跌停53只，创新药逆势涨停](https://randyrong116-art.github.io/ryulongrise/reviews/2026-07-06/): 2026年7月6日（周一）A股复盘：沪指-1.37%、深成指-3.17%、创业板指-3.84%，成交额约3.47万亿元，跌停53只处近期偏高水平，机器人/PCB/算力硬件全线转弱；创新药受政策催化逆势大涨，甘李药业、首药控股等多股涨停。
 - [A股复盘 2026-07-03：机器人新主线放量引爆，74只涨停，成交3.18万亿缩量](https://randyrong116-art.github.io/ryulongrise/reviews/2026-07-03/): 2026年7月3日（周五）A股复盘：沪指+0.37%、深成指+0.64%、创业板指+0.07%，74只涨停/7只跌停，成交额3.18万亿元较前日缩量2681亿；宇树科技IPO注册获批+优必选新品双催化引爆人形机器人板块，黄金、电网设备强势，半导体材料/光模块资金外流调整。
