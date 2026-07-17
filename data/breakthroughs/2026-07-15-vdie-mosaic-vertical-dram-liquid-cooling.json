@@ -1,0 +1,12 @@
+{
+  "slug": "2026-07-15-vdie-mosaic-vertical-dram-liquid-cooling",
+  "title": "韩日竖置DRAM新架构：V-Die互连数达HBM4四倍、时延降37%",
+  "date": "2026-07-15",
+  "maturity": "实验室",
+  "what": "在2026 IEEE/JSAP VLSI技术与电路研讨会上，韩国研究团队展示V-Die（Vertical-Die）架构——将定制DRAM裸片竖立排布，并在相邻芯片之间嵌入液冷通道，互连数量最高可达HBM4的4倍、访存时延降低37%，模拟推理吞吐量540 token/s（对比HBM4的296 token/s）；日本团队同场展示MOSAIC方案，同样通过改变DRAM堆叠方向来突破HBM的带宽墙与散热墙。",
+  "impact": "直指HBM'堆叠越高、散热越差'的物理瓶颈，若走向产业化将重构AI存储的封装与散热范式，对应先进封装、微通道液冷、载板新材料方向。需强调：这是研讨会论文级别的实验室架构，距离量产至少数年，实验室突破不等于立即可投资，A股相关方向多为题材联想属性。",
+  "stocks": "通富微电(002156)·长电科技(600584)·英维克(002837)",
+  "summary": "2026年7月15日集邦报道：韩日研究者在IEEE VLSI研讨会提出V-Die/MOSAIC竖置DRAM架构，芯片间集成液冷通道，互连数达HBM4的4倍、时延降37%，瞄准HBM带宽与散热瓶颈，目前处于实验室阶段。",
+  "source_name": "TrendForce/集邦",
+  "source_url": "https://www.trendforce.com/news/2026/07/15/news-korean-and-japanese-researchers-unveil-new-ai-memory-architectures-turning-dram-sideways-to-address-hbm-bandwidth-and-thermal-limits/"
+}
