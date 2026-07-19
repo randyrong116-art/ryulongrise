@@ -9,10 +9,10 @@
 ## 涨价官宣数据库
 
 - [长鑫科技科创板IPO招股书披露：H1净利同比暴增最高2544%](https://randyrong116-art.github.io/ryulongrise/hikes/2026-07-09-changxin-memory-ipo-supercycle-validation/): 存储芯片龙头长鑫科技7月9日披露科创板发行安排，拟募资295亿元创科创板IPO之最，招股书披露H1净利润同比最高增长2544%，为存储芯片超级周期提供历史级业绩证据，直接带动A股存储芯片全产业链走强。
-- [建滔年内第六轮涨价：FR-4覆铜板与PP统一提价15%，累计涨超50%](https://randyrong116-art.github.io/ryulongrise/hikes/2026-07-06-kingboard-sixth-ccl-price-hike/): 建滔积层板7月6日起对所有FR-4覆铜板及PP统一提价15%，为年内第六轮涨价，累计涨幅超50%；涨价归因于上游玻璃布、铜箔紧缺涨价，机构判断CCL涨价周期或延续至2027年上半年。
-- [集邦Q3存储合约价指引：DRAM环比涨13%-18%，NAND涨10%-15%](https://randyrong116-art.github.io/ryulongrise/hikes/2026-07-03-trendforce-q3-dram-nand-contract-guidance/): 集邦咨询指引2026年Q3传统DRAM合约价环比涨13%-18%、NAND涨10%-15%，AI服务器需求撑价但消费端涨幅收敛；同期韩国检方调查内存接口芯片价格操纵，监管风险首次进入存储涨价周期。
+- [建滔年内第六轮涨价：FR-4覆铜板与PP统一提价15%，累计涨超50%](https://randyrong116-art.github.io/ryulongrise/hikes/2026-07-06-kingboard-sixth-ccl-price-hike/): 建滔积层板7月6日起对所有FR-4覆铜板及PP统一提价15%，为年内第六轮涨价，累计涨幅超50%；同期生益科技全面涨价5%-15%（AI机架专用M9级覆铜板单独涨25%）、富乔工业电子布涨价15%-30%，机构判断CCL涨价周期或延续至2027年上半年。
+- [集邦Q3存储合约价指引：DRAM环比涨13%-18%，NAND涨10%-15%](https://randyrong116-art.github.io/ryulongrise/hikes/2026-07-03-trendforce-q3-dram-nand-contract-guidance/): 集邦咨询指引2026年Q3传统DRAM合约价环比涨13%-18%、NAND涨10%-15%、HBM3E/HBM4涨15%-30%，AI服务器需求撑价但消费端涨幅收敛；韩国检方调查内存接口芯片价格操纵，7月17日风险发酵引发A股存储板块系统性重挫，产业涨价与股价阶段性脱钩。
 - [电子布年内五轮涨价，一季度均价同比涨116.9%破历史高点](https://randyrong116-art.github.io/ryulongrise/hikes/2026-07-02-electronic-cloth-monthly-price-hike/): 2026年电子布价格延续每月一调，年内已五轮涨价，7628规格累计涨超70%，龙头宏和科技一季度均价同比涨116.9%，突破2021年历史高点。
-- [存储芯片7月涨价加速，特气靶材同步跟涨超30%](https://randyrong116-art.github.io/ryulongrise/hikes/2026-07-storage-specialty-gas-sputtering-target-hike/): 2026年7月存储全产业链涨价提速：HBM3E/HBM4涨15%-30%，DRAM/NAND涨8%-22%，上游六氟化钨特气涨30%-40%，高纯钨钽靶材及AI硅片涨10%-25%。
+- [存储芯片7月涨价加速，特气靶材同步跟涨超30%](https://randyrong116-art.github.io/ryulongrise/hikes/2026-07-storage-specialty-gas-sputtering-target-hike/): 2026年7月存储全产业链涨价提速：HBM3E/HBM4涨15%-30%，DRAM/NAND涨8%-22%；上游半导体材料同步全线上涨，六氟化钨特气涨30%-40%、光刻胶涨6%-20%、ABF载板涨10%-20%、高纯石英涨10%-20%，涨价已覆盖存储到材料的全产业链。
 - [MLCC渠道现货急涨：村田高容料单日涨5%，个别料号溢价超20倍](https://randyrong116-art.github.io/ryulongrise/hikes/2026-07-15-mlcc-spot-channel-surge/): 7月中旬华强北MLCC渠道现货持续急涨，村田1206服务器高容料单日涨约5%、个别料号渠道价较出厂价溢价超20倍；原厂端村田、国巨均已于7月1日执行新一轮涨价，AI服务器高容料是紧缺核心。
 - [北京君正确认DRAM逐季提价，半导体硅片指数年内涨幅近翻倍](https://randyrong116-art.github.io/ryulongrise/hikes/2026-07-12-storage-design-chip-silicon-wafer-price-hike/): 北京君正7月初确认DRAM产品价格逐季持续上调、四季度仍有调价空间；同期半导体硅片指数年内涨幅逼近翻倍，立昂微、沪硅产业等12英寸硅片厂商量价齐升。
 - [士兰微等功率半导体厂商集体涨价，AI服务器高功耗成主因](https://randyrong116-art.github.io/ryulongrise/hikes/2026-07-01-power-semiconductor-price-hike/): 国内功率半导体厂商士兰微、扬杰科技、芯联集成等自7月起集体涨价10%-25%，核心驱动是AI服务器功耗是传统服务器的3-5倍，带动电源管理芯片与功率器件需求激增、产能满载。
@@ -41,6 +41,8 @@
 
 ## 前沿突破
 
+- [中科曙光全国产十万卡AI超集群'曙光8000'落成，接入国家超算互联网](https://randyrong116-art.github.io/ryulongrise/breakthroughs/2026-07-17-sugon-8000-hundred-thousand-card-cluster/): 中科曙光在2026世界人工智能大会（WAIC）发布中国首个全国产十万卡AI超集群'曙光8000（登峰）'，采用'超智融合'技术路线并已接入国家超算互联网，是国产算力自主可控进程的重要落地节点。
+- [华为昇腾950超节点WAIC真机首秀：1024卡集群，规划扩展至50万卡](https://randyrong116-art.github.io/ryulongrise/breakthroughs/2026-07-17-huawei-ascend-950-superpod-waic-debut/): 华为昇腾950超节点（Atlas 950 SuperPoD）在2026世界人工智能大会（WAIC）现场首次公开亮相真机，展示1024张昇腾卡集群，基于自研'灵衢'互联协议最大支持8192卡互联，规划集群规模可扩展至50万卡，是国产算力自主可控的重要硬件节点。
 - [台积电上调资本开支至640亿美元：CoWoS缺口超20%，指引升至40%](https://randyrong116-art.github.io/ryulongrise/breakthroughs/2026-07-16-tsmc-capex-cowos-expansion/): 台积电7月16日法说会：Q2净利同比大增77.4%创纪录，全年资本开支上调至600-640亿美元、营收指引上修至约+40%，CoWoS先进封装缺口超20%，亚利桑那再加码千亿美元扩建先进制程。
 - [韩日竖置DRAM新架构：V-Die互连数达HBM4四倍、时延降37%](https://randyrong116-art.github.io/ryulongrise/breakthroughs/2026-07-15-vdie-mosaic-vertical-dram-liquid-cooling/): 2026年7月15日集邦报道：韩日研究者在IEEE VLSI研讨会提出V-Die/MOSAIC竖置DRAM架构，芯片间集成液冷通道，互连数达HBM4的4倍、时延降37%，瞄准HBM带宽与散热瓶颈，目前处于实验室阶段。
 - [英伟达Spectrum-X CPO交换机拟下半年量产，台积电光引擎达3.2Tbps](https://randyrong116-art.github.io/ryulongrise/breakthroughs/2026-07-nvidia-cpo-tsmc-coupe-mass-production/): 英伟达Spectrum-X CPO交换机计划2026年下半年量产供货，台积电COUPE二代光引擎3.2Tbps产品完成测试，黄仁勋7月13日进一步确认CPO路线图未变。
@@ -59,6 +61,7 @@
 
 ## A股每日复盘（事实层，无操作建议）
 
+- [A股复盘 2026-07-17：黑色星期五沪指跌3.05%创指跌7.15%，35只涨停成交2.65万亿](https://randyrong116-art.github.io/ryulongrise/reviews/2026-07-17/): 2026年7月17日（周五）A股遭遇本轮周期最惨烈单日重挫：沪指跌3.05%报3764.15点，创业板指跌7.15%，两市成交约2.65万亿元，近5000只个股下跌、198只跌停，总市值单日蒸发约4.52万亿元。存储、半导体链系统性重挫，电力、军工、AI模型参股概念逆势活跃，同日WAIC 2026世界人工智能大会在上海开幕。
 - [A股复盘 2026-07-16：存储链重挫沪指失守3900点，48只涨停成交2.42万亿](https://randyrong116-art.github.io/ryulongrise/reviews/2026-07-16/): 2026年7月16日（周四）A股复盘：沪指跌1.85%报3882.41点失守3900点，创业板指跌2.95%，科创50连续两日跌超4%，成交额2.42万亿元，超2800只个股下跌。韩国检方调查内存接口芯片价格操纵叠加韩国央行加息，存储芯片批量跌停、澜起科技跌超16%；医药（片仔癀近22个月首次涨停）、影视（儒意电影2连板）逆势活跃，午后PCB异动、红板科技上演'地天板'。
 - [A股复盘 2026-07-14：算力硬件深V反转，87只涨停创业板暴涨3.43%](https://randyrong116-art.github.io/ryulongrise/reviews/2026-07-14/): 2026年7月14日（周二）A股复盘：沪指涨1.36%收复3900点报3967.13点、深成指涨2.77%、创业板指探底回升暴涨3.43%，成交额2.7万亿元，全市场超4200只个股上涨。PCB龙头集中披露中报预增叠加英伟达CEO黄仁勋辟谣Rubin Ultra延期传闻，双重利好点燃算力硬件全产业链，东山精密、生益科技等涨停；全市场87只涨停、22只跌停，情绪从07-13的冰点明显回暖。
 - [A股复盘 2026-07-09：长鑫科技IPO点燃存储链，科创50单日暴涨8.41%](https://randyrong116-art.github.io/ryulongrise/reviews/2026-07-09/): 2026年7月9日（周四）A股复盘：沪指涨1.65%收复4000点、深成指涨3.07%、创业板指涨4.49%、科创50暴涨8.41%，成交额约2.92万亿元。存储龙头长鑫科技科创板IPO招股书披露H1净利润同比最高增长2544%，点燃存储芯片全产业链，兆易创新、长电科技等涨停；沐曦股份盘中破千元创历史新高后回落；锂矿、稀土板块集体重挫。
